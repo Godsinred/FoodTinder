@@ -1,32 +1,58 @@
-const request = require('request');
-const querystring = require('querystring')
+//Use when in React Native
+import axios from 'axios';
 
-const BUSINESS_SEARCH = 'https://api.yelp.com/v3/businesses/search?'
-const BUSINESS_DETAILS = 'https://api.yelp.com/v3/businesses/'
-const API_KEY = 'a_IHoeZF1KZ_fhIsvoJW4-JF-r1TZnDY--wKtRLCiBQMqHcEqGpI2OLoTHfzKPZvl3iVQwm-IEjqwD7xofN_pRDTwMSIicYfZiy0WcNNlxpqvBoEfZjtIgT_p8_gWnYx'
+//use when testing in terminal
+// var axios = require('axios')
 
-module.exports = {
-    /**
-     * returns a json list of businesses sorted by location. Ideally, this should be called in a Promise / async function
-     * @param location: a location object returned from Expo.Location.getCurrentPositionAsync
-     * @returns an array of businesses
-     */
-    businessSearchByLocation: function(location){
-        if(location.latitude === undefined || location.longitude === undefined){
-            throw 'Longitude and Latitude must be defined. Use Expo.Location.getCurrentPositionAsync'
+module.exports = class YelpApi{
+    constructor(){
+        this.businessSearch = 'https://api.yelp.com/v3/businesses/search';
+        this.businessDetails = 'https://api.yelp.com/v3/businesses/';
+        this.apiKey = 'a_IHoeZF1KZ_fhIsvoJW4-JF-r1TZnDY--wKtRLCiBQMqHcEqGpI2OLoTHfzKPZvl3iVQwm-IEjqwD7xofN_pRDTwMSIicYfZiy0WcNNlxpqvBoEfZjtIgT_p8_gWnYx'
+            //cause who cares about security amirite
+        this.auth = {
+            'Authorization': 'Bearer '+ this.apiKey
         }
-        let options = {
-            url: BUSINESS_SEARCH,
-            method: 'GET',
-            headers:{
-                authorization: 'Bearer ' + API_KEY
-            },
-            qs:{latitude: location.latitude, longitude: location.longitude}
+    }
+
+    /**
+     * returns a promise. use like
+     * var api = new YelpApi();
+     * api.searchByLocation({...}).then(data =>{
+     *          do stuff with data
+     * })
+     * @param {object} location {longitude: decimal, latitude: decimal}
+     */
+    searchByLocation(location){
+        if (location.latitude === undefined || location.longitude === undefined) {
+            throw 'Longitude and Latitude must be defined. Use Expo.Location.getCurrentPositionAsync'
         };
-        return new Promise(()=>{
-            return request(options, (err, res, body) =>{
-                return JSON.parse(body);
+        let options = {
+            latitude: location.latitude,
+            longitude: location.longitude,
+        };
+        
+        return axios.get(this.businessSearch,{
+                params: options,
+                headers: this.auth
+            }).then((response, reject) =>{
+                // uncomment for debugging!
+                // console.log(response.data);
+                return response.data;
+            }).catch(err =>{
+                console.log('You fucked up: '+ err);
             })
+    }
+
+    getBusinessDetails(businessId){
+        return axios.get(this.businessDetails + businessId,{
+            headers: this.auth
+        }).then((response, reject) =>{
+            // uncomment for debugging!
+            // console.log(response.data);
+            return response.data;
+        }).catch(err =>{
+            console.log('You fucked up: '+ err);
         })
-    },
+    }
 }
