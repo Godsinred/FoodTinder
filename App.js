@@ -15,7 +15,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Button
-        
+
           onPress={this.functionOnClick}
           title="Learn More"
           color="#841584"
