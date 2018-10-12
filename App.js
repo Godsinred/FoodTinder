@@ -1,11 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import YelpApi from './src/YelpApi/YelpApi.js'
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default class App extends React.Component {
+  functionOnClick() {
+    var api = new YelpApi();
+    let location = { latitude: 33.684566, longitude: -117.826508 }
+    api.searchByLocation(location).then(response => {
+      console.log(response)
+    })
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app</Text>
+        <Button
+        
+          onPress={this.functionOnClick}
+          title="Learn More"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />
       </View>
     );
   }
