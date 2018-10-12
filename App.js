@@ -1,5 +1,5 @@
 import React from 'react';
-import YelpApi from './src/YelpApi/YelpApi.js'
+import YelpApi from './src/YelpApi/YelpApiClass.js'
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default class App extends React.Component {
