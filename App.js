@@ -15,9 +15,11 @@ export default class App extends React.Component {
   }
 
   render() {
+    // this can either be back button or Match Me!
+    buttonText = 'Match me!'
     return (
-      <Navbar></Navbar>
-          //<MainContainer></MainContainer>
+      <Navbar text = { buttonText }></Navbar>
+      //<MainContainer></MainContainer>
     );
   }
 }

@@ -1,9 +1,9 @@
 {
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 6460,
-  "expoServerNgrokUrl": "https://zy-nhy.godsinred.foodtinder.exp.direct",
-  "packagerNgrokUrl": "https://packager.zy-nhy.godsinred.foodtinder.exp.direct",
-  "ngrokPid": 6478,
+  "packagerPid": 7406,
+  "expoServerNgrokUrl": "https://h5-nqe.godsinred.foodtinder.exp.direct",
+  "packagerNgrokUrl": "https://packager.h5-nqe.godsinred.foodtinder.exp.direct",
+  "ngrokPid": 7432,
   "devToolsPort": 19002
 }

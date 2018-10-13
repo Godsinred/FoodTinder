@@ -14,7 +14,7 @@ export default class AppContainer extends Component {
             businesses: 'businesses here'
         }
     }
-    
+
     componentWillMount() {
         if (Platform.OS === 'android' && !Constants.isDevice) {
             this.setState({
@@ -75,4 +75,3 @@ const styles = StyleSheet.create({
       textAlign: 'center',
     },
   });
-
