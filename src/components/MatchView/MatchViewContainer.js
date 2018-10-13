@@ -55,6 +55,7 @@ export default class MatchViewContainer extends Component {
     };
 
     render() {
+
         return (
             <View style={styles.container}>
                 <Swiper
@@ -148,6 +149,7 @@ export default class MatchViewContainer extends Component {
                         You can press me
                     </Button>
                 </Swiper>
+                <ButtonGroup></ButtonGroup>
             </View>
 
         )
