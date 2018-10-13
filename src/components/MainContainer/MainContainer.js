@@ -9,6 +9,7 @@ import MatchViewContainer from '../MatchView/MatchViewContainer.js';
 export default class MainContainer extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             location: {
                 "latitude": null,
