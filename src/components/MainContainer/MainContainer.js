@@ -30,7 +30,6 @@ export default class MainContainer extends Component {
     };
 
     _getLocationAsync = async () => {
-        console.log('get location')
         let { status } = await Permissions.askAsync(Permissions.LOCATION);
         if (status !== 'granted') {
             this.setState({
@@ -46,8 +45,6 @@ export default class MainContainer extends Component {
                 "longitude": thisLocation.coords.longitude
             }
         });
-        console.log('Got location: ')
-        console.log(this.state);
     };
 
     render() {

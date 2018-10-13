@@ -10,17 +10,17 @@ const ButtonGroup = ({ onPress, children }) => {
     imageStyle
   } = styles;
   return (
-    <View style = { constainerStyle }>
+    <View style={constainerStyle}>
       <TouchableOpacity onPress={onPress} style={buttonStyle}>
-        <Image style={ imageStyle } source={require("../../Assets/redX.png")}/>
+        <Image style={imageStyle} source={require("../../Assets/redX.png")} />
       </TouchableOpacity>
-      <View style = {{ flex: 0.05 }} />
+      <View style={{ flex: 0.05 }} />
       <TouchableOpacity onPress={onPress} style={buttonStyle}>
-        <Image style={ imageStyle } source={require("../../Assets/rubbyDucky.png")}/>
+        <Image style={imageStyle} source={require("../../Assets/rubbyDucky.png")} />
       </TouchableOpacity>
-      <View style = {{ flex: 0.05 }} />
+      <View style={{ flex: 0.05 }} />
       <TouchableOpacity onPress={onPress} style={buttonStyle}>
-        <Image style={ imageStyle } source={require("../../Assets/greenCheck.png")}/>
+        <Image style={imageStyle} source={require("../../Assets/greenCheck.png")} />
       </TouchableOpacity>
     </View>
   );
@@ -42,9 +42,9 @@ const styles = {
     borderColor: '#007aff'
   },
   constainerStyle: {
-    padding: 15,
+    padding: 5,
     alignItems: 'stretch',
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
     alignSelf: 'center',
     flexDirection: 'row',
     position: 'relative',

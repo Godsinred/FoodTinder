@@ -4,7 +4,9 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 import MainContainer from './src/components/MainContainer/MainContainer';
 
+
 export default class App extends React.Component {
+
 
   render() {
     return (
