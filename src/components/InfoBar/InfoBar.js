@@ -7,20 +7,20 @@ export default class InfoBar extends React.Component {
       <View style={styles.container}>
         <View style={styles.p80Container}>
         <View style={styles.smallContainer}>
-             <Text style={styles.detailContainer}>{this.props.name}, {this.props.city}</Text>
+             <Text style={styles.detailContainer}>{this.props.name}</Text>
         </View>
 
         <View style={styles.smallContainer}>
-               <Text style={styles.detailContainer}>{this.props.rating}</Text>
+             <Text style={styles.detailContainer}>{this.props.city}, {this.props.distance} mi.</Text>
 
         </View>
       </View>
       <View style={styles.p20Container}>
          <View style={styles.smallContainer}>
-            <Text style={styles.detailContainer}>{this.props.price}</Text>
+            <Text style={styles.detailContainer}>{this.props.rating}</Text>
         </View>
         <View style={styles.smallContainer}>
-            <Text style={styles.detailContainer}>{this.props.distance} mi.</Text>   
+            <Text style={styles.detailContainer}>{this.props.price}</Text>   
         </View>
       </View>
       </View>
@@ -55,4 +55,4 @@ export default class InfoBar extends React.Component {
   detailContainer:{
     fontSize: 20,
   }
-  });
+});
