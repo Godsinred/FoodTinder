@@ -25,7 +25,6 @@ export default class Navbar extends Component {
         matchBool: true
       })
     }
-
   }
   render() {
     return (
