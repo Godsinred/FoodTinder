@@ -13,10 +13,16 @@ export default class MatchViewContainer extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
-            cardStack: [],
+            cards: ['1', '2', '3'],
+            swipedAllCards: false,
+            swipeDirection: '',
+            isSwipingBack: false,
+            cardIndex: 0,
             location: this.props.location,
-        };
+            businesses: []
+          }
     }
 
 
@@ -26,42 +32,33 @@ export default class MatchViewContainer extends Component {
         console.log(`New props: ${JSON.stringify(this.props)}`)
         if (this.props.latitude !== oldProps.latitude && this.props.longitude !== oldProps.longitude) {
             searchByLocation(this.props).then(results => {
-                console.log(results[0]);
+                console.log(typeof(results))
                 this.setState({
-                  businessId: results[0].id
+                    businesses: results
                 })
             })
         }
     }
 
-<<<<<<< HEAD
-    createFlatList(business) {
-        console.log(business.id)
-        getReview(business.id).then(response => {
-            console.log('reviews')
-            console.log(response);
-            this.setState({
-                reviews: response
-            })
-        })
+    renderCard = (card, index) =>{
+
     }
 
-=======
->>>>>>> c42312d4c0729cdf46ded49647955b471112017d
-    createCard(business) {
-        console.log(`Card created for ${business.id}`);
-        return business.id;
-    }
+    onSwipedAllCards = () => {
+        this.setState({
+          swipedAllCards: true
+        })
+      };
 
     render() {
         return (
             <View style={styles.container}>
                 <Swiper
-                    cards={['DO', 'MORE', 'OF', 'WHAT', 'MAKES', 'YOU', 'HAPPY']}
+                    cards={this.state.businesses}
                     renderCard={(card) => {
                         return (
                             <View style={styles.card}>
-                                <Text style={styles.text}>{card}</Text>
+                                <Text style={styles.text}>{card.name}</Text>
                             </View>
                         )
                     }}
@@ -69,7 +66,82 @@ export default class MatchViewContainer extends Component {
                     onSwipedAll={() => { console.log('onSwipedAll') }}
                     cardIndex={0}
                     backgroundColor={'#4FD0E9'}
-                    stackSize={3}>
+                    stackSize={3}
+                    overlayLables={{
+                        bottom: {
+                            element: <Text>BLEAH</Text>, /* Optional */
+                            title: 'BLEAH',
+                            style: {
+                                label: {
+                                    backgroundColor: 'black',
+                                    borderColor: 'black',
+                                    color: 'white',
+                                    borderWidth: 1
+                                },
+                                wrapper: {
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }
+                            }
+                        },
+                        left: {
+                            element: <Text>NOPE</Text>, /* Optional */
+                            title: 'NOPE',
+                            style: {
+                                label: {
+                                    backgroundColor: 'black',
+                                    borderColor: 'black',
+                                    color: 'white',
+                                    borderWidth: 1
+                                },
+                                wrapper: {
+                                    flexDirection: 'column',
+                                    alignItems: 'flex-end',
+                                    justifyContent: 'flex-start',
+                                    marginTop: 30,
+                                    marginLeft: -30
+                                }
+                            }
+                        },
+                        right: {
+                            element: <Text>LIKE</Text>, /* Optional */
+                            title: 'LIKE',
+                            style: {
+                                label: {
+                                    backgroundColor: 'black',
+                                    borderColor: 'black',
+                                    color: 'white',
+                                    borderWidth: 1
+                                },
+                                wrapper: {
+                                    flexDirection: 'column',
+                                    alignItems: 'flex-start',
+                                    justifyContent: 'flex-start',
+                                    marginTop: 30,
+                                    marginLeft: 30
+                                }
+                            }
+                        },
+                        top: {
+                            element: <Text>SUPER</Text>, /* Optional */
+                            title: 'SUPER LIKE',
+                            style: {
+                                label: {
+                                    backgroundColor: 'black',
+                                    borderColor: 'black',
+                                    color: 'white',
+                                    borderWidth: 1
+                                },
+                                wrapper: {
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }
+                            }
+                        }
+                    }}
+                >
                     <Button
                         onPress={() => { console.log('oulala') }}
                         title="Press me">
@@ -84,16 +156,29 @@ export default class MatchViewContainer extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: 'powderblue',
-        alignItems: 'stretch',
-        justifyContent: 'center'
+      flex: 1,
+      backgroundColor: '#F5FCFF'
     },
-    buttonGroup: {
-        alignSelf: 'flex-end'
+    card: {
+      flex: 1,
+      borderRadius: 4,
+      borderWidth: 2,
+      borderColor: '#E8E8E8',
+      justifyContent: 'center',
+      backgroundColor: 'white'
     },
-
-})
+    text: {
+      textAlign: 'center',
+      fontSize: 50,
+      backgroundColor: 'transparent'
+    },
+    done: {
+      textAlign: 'center',
+      fontSize: 30,
+      color: 'white',
+      backgroundColor: 'transparent'
+    }
+  })
 
 MatchViewContainer.propTypes = {
     latitude: PropTypes.number,
