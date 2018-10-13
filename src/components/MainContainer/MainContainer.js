@@ -4,7 +4,7 @@ import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import { Constants, Location, Permissions } from 'expo';
 
 
-import {searchByLocation} from '../../YelpApi/yelpApiFunctions';
+import {searchByLocation} from '../../YelpApi/YelpApiFunctions';
 
 export default class AppContainer extends Component {
     constructor(props){
@@ -35,21 +35,28 @@ export default class AppContainer extends Component {
             });
         }
 
-        let thislocation = await Location.getCurrentPositionAsync({});
-        this.setState({ location:thislocation });
+        let thisLocation = await Location.getCurrentPositionAsync({});
+        let requiredLocation = {
+            latitude: thisLocation.coords.latitude,
+            longitude: thisLocation.coords.longitude
+        }
+
+        this.setState({ location: requiredLocation });
+        console.log('Got location: ')
+        console.log(requiredLocation);
     };
 
     searchBusinesses(){
         console.log(this.state.location);
-        searchByLocation(this.state.location.coords).then(results =>{
+        searchByLocation(this.state.location).then(results =>{
             this.setState({
                 businesses: JSON.stringify(results)
             })
+            console.log(results);
         })
     }
 
     render() {
-        console.log(this.state);
         let text = 'Waiting..';
         return (
           <View style={styles.container}>
