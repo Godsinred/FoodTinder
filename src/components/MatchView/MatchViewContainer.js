@@ -6,6 +6,7 @@ import Swiper from 'react-native-deck-swiper'
 
 import { searchByLocation, getBusinessDetails, getReview } from '../../YelpApi/YelpApiFunctions';
 import ButtonGroup from './ButtonGroup';
+import ScrollView from './ScrollView'
 
 
 export default class MatchViewContainer extends Component {
@@ -15,7 +16,6 @@ export default class MatchViewContainer extends Component {
         this.state = {
             cardStack: [],
             location: this.props.location,
-            reviews: []
         };
     }
 
@@ -27,11 +27,14 @@ export default class MatchViewContainer extends Component {
         if (this.props.latitude !== oldProps.latitude && this.props.longitude !== oldProps.longitude) {
             searchByLocation(this.props).then(results => {
                 console.log(results[0]);
-                this.createFlatList(results[0]);
+                this.setState({
+                  businessId: results[0].id
+                })
             })
         }
     }
 
+<<<<<<< HEAD
     createFlatList(business) {
         console.log(business.id)
         getReview(business.id).then(response => {
@@ -43,6 +46,8 @@ export default class MatchViewContainer extends Component {
         })
     }
 
+=======
+>>>>>>> c42312d4c0729cdf46ded49647955b471112017d
     createCard(business) {
         console.log(`Card created for ${business.id}`);
         return business.id;
@@ -86,7 +91,8 @@ const styles = StyleSheet.create({
     },
     buttonGroup: {
         alignSelf: 'flex-end'
-    }
+    },
+
 })
 
 MatchViewContainer.propTypes = {
