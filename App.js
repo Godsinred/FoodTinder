@@ -6,18 +6,14 @@ import MainContainer from './src/components/MainContainer/MainContainer';
 import Navbar from './src/components/MainContainer/Navbar';
 
 export default class App extends React.Component {
-  functionOnClick() {
-    var api = new YelpApi();
-    let location = { latitude: 33.684566, longitude: -117.826508 }
-    api.searchByLocation(location).then(response => {
-      console.log(response)
-    })
-  }
 
   render() {
     return (
-      <Navbar></Navbar>
-          //<MainContainer></MainContainer>
+      //<Navbar></Navbar>
+      <View>
+        <MainContainer></MainContainer>
+      </View>
+
     );
   }
 }

@@ -4,17 +4,20 @@ import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import { Constants, Location, Permissions } from 'expo';
 
 
-import {searchByLocation} from '../../YelpApi/YelpApiFunctions';
+import MatchViewContainer from '../MatchView/MatchViewContainer.js';
 
-export default class AppContainer extends Component {
-    constructor(props){
+export default class MainContainer extends Component {
+    constructor(props) {
         super(props);
         this.state = {
-            location: null,
-            businesses: 'businesses here'
+            location: {
+                "latitude": 42.3447331,
+                "longitude": -71.071063
+            },
+            
         }
     }
-    
+
     componentWillMount() {
         if (Platform.OS === 'android' && !Constants.isDevice) {
             this.setState({
@@ -46,40 +49,33 @@ export default class AppContainer extends Component {
         console.log(requiredLocation);
     };
 
-    searchBusinesses(){
-        console.log(this.state.location);
-        searchByLocation(this.state.location).then(results =>{
-            this.setState({
-                businesses: JSON.stringify(results)
-            })
-            console.log(results);
-        })
-    }
-
     render() {
         let text = 'Waiting..';
         return (
-          <View style={styles.container}>
-            <Text style={styles.paragraph}
-                onPress={this.searchBusinesses.bind(this)}
-            >{this.state.businesses}</Text>
-          </View>
+            <View>
+                <Text>MainContainer</Text>
+                <MatchViewContainer
+                latitude={this.state.location.latitude}
+                longitude={this.state.location.longitude}
+                ></MatchViewContainer>
+            </View>
+
         );
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingTop: Constants.statusBarHeight,
-      backgroundColor: '#ecf0f1',
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop: Constants.statusBarHeight,
+        backgroundColor: '#ecf0f1',
     },
     paragraph: {
-      margin: 24,
-      fontSize: 18,
-      textAlign: 'center',
+        margin: 24,
+        fontSize: 18,
+        textAlign: 'center',
     },
-  });
+});
 

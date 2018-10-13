@@ -1,27 +1,36 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component} from 'react';
 // import NavBar from './navbar';
-import { Platform, StyleSheet, Text, View, Button, PropTypes } from 'react-native';
-import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import { Platform, StyleSheet, Text, View, Button} from 'react-native';
+import PropTypes from 'prop-types';
+import searchByLocation  from '../../YelpApi/YelpApiFunctions';
 
-
-import { searchByLocation } from '../../YelpApi/YelpApiFunctions';
 const component1 = () => <Text>Hello</Text>
 const component2 = () => <Text>World</Text>
 const component3 = () => <Text>ButtonGroup</Text>
-export default class AppContainer extends Component {
+
+export default class MatchViewContainer extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            cardStack: []
+            cardStack: [], 
+            location: this.props.location
         };
     }
 
-    componentWillMount() {
-        searchByLocation(this.props.location).then(results => {
-            results.business.forEach(business => {
-                this.state.cardStack.push(this.createCard(business))
-            })
-        })
+    // componentWillMount() {
+    //     searchByLocation(this.props.location).then(results => {
+    //         results.business.forEach(business => {
+    //             this.state.cardStack.push(this.createCard(business))
+    //         })
+    //     })
+    // }
+
+    componentWillReceiveProps(nextProps) {
+        // update original states
+        this.setState({
+          location: nextProps,
+        });
     }
 
     createCard(business) {
@@ -29,23 +38,18 @@ export default class AppContainer extends Component {
         return business.id;
     }
 
-
-
     render() {
         const buttons = [{ element: component1 }, { element: component2 }, { element: component3 }]
         return (
-            <ButtonGroup
-                style={styles.buttonGroup}
-                onPress={console.log('here')}
-                buttons={buttons}
-                containerStyle={{ height: 100 }}
-            />
+            <View>
+                <Text>MatchViewContainer</Text>
+            </View>
         )
     }
 
 }
 
-const styles = StyleSheet({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
@@ -56,9 +60,7 @@ const styles = StyleSheet({
     }
 })
 
-AppContainer.PropTypes = {
-    location: PropTypes.shape({
-        latitude: PropTypes.number,
-        longitude: PropTypes.number
-    }),
+MatchViewContainer.propTypes = {
+    latitude: PropTypes.number,
+    longitude: PropTypes.number
 }
