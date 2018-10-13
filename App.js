@@ -2,6 +2,8 @@ import React from 'react';
 import YelpApi from './src/YelpApi/YelpApiClass.js'
 import { StyleSheet, Text, View, Button } from 'react-native';
 
+import MainContainer from './src/components/MainContainer/MainContainer';
+
 export default class App extends React.Component {
   functionOnClick() {
     var api = new YelpApi();
@@ -13,15 +15,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Button
-
-          onPress={this.functionOnClick}
-          title="Learn More"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-        />
-      </View>
+      <MainContainer></MainContainer>
     );
   }
 }

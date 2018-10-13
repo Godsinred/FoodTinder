@@ -20,6 +20,7 @@ function getBusinessDetails(businessId){
 }
 
 function searchByLocation(location){
+    console.log('searching')
     if (location.latitude === undefined || location.longitude === undefined) {
         throw 'Longitude and Latitude must be defined. Use Expo.Location.getCurrentPositionAsync'
     };
