@@ -64,8 +64,9 @@ export default class ScrollView extends Component {
 
 const styles = StyleSheet.create({
   scrollView: {
-    flex: 1,
+    flex: -1,
+    flexDirection: 'column',
     alignItems: 'stretch',
-    backgroundColor: 'powderblue'
+    backgroundColor: 'powderblue',
   }
   });

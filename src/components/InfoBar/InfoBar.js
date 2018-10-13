@@ -20,7 +20,7 @@ export default class InfoBar extends React.Component {
             <Text style={styles.detailContainer}>{this.props.rating}</Text>
         </View>
         <View style={styles.smallContainer}>
-            <Text style={styles.detailContainer}>{this.props.price}</Text>   
+            <Text style={styles.detailContainer}>{this.props.price}</Text>
         </View>
       </View>
       </View>
@@ -33,15 +33,15 @@ export default class InfoBar extends React.Component {
    flex: 1, flexDirection: 'row'
   },
   p80Container: {
-    flex: 0.8, 
+    flex: 0.8,
     height: 100,
-    //backgroundColor: 'powderblue',
+    backgroundColor: 'powderblue',
     flexDirection: 'column'
   },
   p20Container: {
-    flex: 0.2, 
+    flex: 0.2,
     height: 100,
-   // backgroundColor: 'skyblue',
+    backgroundColor: 'skyblue',
     flexDirection: 'column'
   },
   smallContainer: {

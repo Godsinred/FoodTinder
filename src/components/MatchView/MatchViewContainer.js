@@ -43,17 +43,7 @@ export default class MatchViewContainer extends Component {
     renderCard = (business, index) => {
         return (
             <View style={styles.card}>
-<<<<<<< HEAD
-                <Text style={styles.text}>{business.name}</Text>
-                <CardContainer business={business}></CardContainer>
-                <ScrollView
-                style={{'flex': 1}}
-                businessId={business.id}
-                >
-                </ScrollView>
-=======
-                <CardContainer business={business}></CardContainer>
->>>>>>> 068f5229cb80c8866a5bcce1ce52c83448e42ad5
+                <CardContainer business={business}></CardContainer>>
             </View>
         )
     }
