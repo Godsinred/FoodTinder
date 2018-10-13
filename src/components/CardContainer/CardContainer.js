@@ -15,7 +15,7 @@ export default class CardContainer extends React.Component {
                 <InfoBar
                     name={this.props.business.name}
                     city={this.props.business.location.city}
-                    distance={this.props.business.distance}
+                    distance={Number(this.props.business.distance).toFixed(1)}
                     rating={this.props.business.rating}
                     price={this.props.business.price}
                 />

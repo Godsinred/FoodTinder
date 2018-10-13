@@ -50,7 +50,7 @@ export default class InfoBar extends React.Component {
     alignItems: 'center',
   },
   nameContainer:{
-    fontSize: 30,
+    fontSize: 20,
     fontWeight: 'bold'
   },
   locationContainer:{
