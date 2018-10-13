@@ -167,6 +167,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       backgroundColor: 'white'
     },
+<<<<<<< HEAD
     text: {
       textAlign: 'center',
       fontSize: 50,
@@ -179,6 +180,13 @@ const styles = StyleSheet.create({
       backgroundColor: 'transparent'
     }
   })
+=======
+    scrollView: {
+
+    }
+
+})
+>>>>>>> fc3b0c29a0b739e0002e3a2a6a1cf3cb8ca921c4
 
 MatchViewContainer.propTypes = {
     latitude: PropTypes.number,

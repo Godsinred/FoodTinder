@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button, FlatList, List, ListItem } from 'react-native';
 import PropTypes from 'prop-types';
 import { getReview } from '../../YelpApi/YelpApiFunctions';
-import styles from './MatchViewContainer'
 
 export default class ScrollView extends Component
 {
@@ -36,10 +35,10 @@ export default class ScrollView extends Component
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.scrollView}>
           <FlatList
               data={this.state.reviews}
-              renderItem={({ item }) => <Text>{item.text}</Text>}
+              renderItem={({ item }) => <Text>{item.name, item.text}</Text>}
               keyExtractor={(item, index) => item.id}
               // extraData={this.state}
           />
@@ -47,3 +46,12 @@ export default class ScrollView extends Component
     )
   }
 }
+
+const styles = StyleSheet.create({
+    scrollView: {
+      width: 100
+      height: 100
+      alignItems: 'stretch'
+    }
+
+})
