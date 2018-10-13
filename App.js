@@ -3,6 +3,7 @@ import YelpApi from './src/YelpApi/YelpApiClass.js'
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 import MainContainer from './src/components/MainContainer/MainContainer';
+import Navbar from './src/components/MainContainer/Navbar';
 
 export default class App extends React.Component {
   functionOnClick() {
@@ -15,7 +16,8 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <MainContainer></MainContainer>
+      <Navbar></Navbar>
+          //<MainContainer></MainContainer>
     );
   }
 }
