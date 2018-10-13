@@ -42,7 +42,6 @@ export default class MatchViewContainer extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.container}>
-                    <Text>MatchViewContainer</Text>
                     <ScrollView
                       businessId={this.state.businessId}
                     >
@@ -64,6 +63,9 @@ const styles = StyleSheet.create({
     buttonGroup: {
         alignSelf: 'flex-end'
     },
+    scrollView: {
+
+    }
 
 })
 
