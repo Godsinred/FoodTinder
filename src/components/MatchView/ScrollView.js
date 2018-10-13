@@ -8,7 +8,7 @@ export default class ScrollView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: []
+      reviews: [],
     };
   }
 
@@ -23,7 +23,7 @@ export default class ScrollView extends Component {
     })
   }
 
-  componentWillMount(){
+  componentWillMount() {
     getReview(this.props.businessId).then(response => {
       console.log(response);
       this.setState({
@@ -45,7 +45,7 @@ export default class ScrollView extends Component {
           reviews: response
         })
       })
-  }
+    }
   }
 
   render() {
@@ -53,12 +53,20 @@ export default class ScrollView extends Component {
       <View style={styles.scrollView}>
         <FlatList
           data={this.state.reviews}
-          renderItem={({ item }) => <Text>{`${item.user.name} ${item.text}`}</Text>}
+          renderItem={({ item }) =>
+            <View>
+              <Text
+                style={styles.name}>
+                {item.user.name}
+              </Text>
+              <Text>{item.text}{'\n'}</Text>
+            </View>
+          }
           keyExtractor={(item, index) => item.id}
         // extraData={this.state}
         />
       </View>
-    )
+    );
   }
 }
 
@@ -67,5 +75,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'stretch',
     backgroundColor: 'powderblue'
+  },
+  name:
+  {
+    fontSize: 14,
+    fontWeight: 'bold'
   }
-  });
+
+});

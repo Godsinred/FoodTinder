@@ -11,15 +11,20 @@ export default class CardContainer extends React.Component {
         let pic = {uri : this.props.business.image_url};
         return (
             <View style={styles.container}>
-                <PictureContainer source={pic} />
-                <InfoBar
+                <PictureContainer 
+                    style={styles.pictureContainer}    
+                    source={pic} />
+                <InfoBar 
+                    style={styles.infoBar}
                     name={this.props.business.name}
                     city={this.props.business.location.city}
-                    distance={Number(this.props.business.distance).toFixed(1)}
+                    distance={Number(this.props.business.distance/1609.34).toFixed(1)}
                     rating={this.props.business.rating}
                     price={this.props.business.price}
                 />
-                <ScrollView businessId={this.props.business.id}/>
+                <ScrollView
+                    style={styles.scrollView}
+                    businessId={this.props.business.id}/>
             </View>
         );
     }
@@ -28,7 +33,16 @@ export default class CardContainer extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 10,
+        flexDirection: 'column',
+        padding: 5,
         alignSelf: 'stretch'
     },
+    pictureContainer :{
+        flex: 2, 
+    },
+    infoBar :{
+        flex: 1, 
+    }, scrollView :{
+        flex: 4, 
+    }  
 });
