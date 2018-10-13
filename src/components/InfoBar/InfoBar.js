@@ -7,11 +7,11 @@ export default class InfoBar extends React.Component {
       <View style={styles.container}>
         <View style={styles.p80Container}>
         <View style={styles.smallContainer}>
-             <Text style={styles.detailContainer}>{this.props.name}</Text>
+             <Text style={styles.nameContainer}>{this.props.name}</Text>
         </View>
 
         <View style={styles.smallContainer}>
-             <Text style={styles.detailContainer}>{this.props.city}, {this.props.distance} mi.</Text>
+             <Text style={styles.locationContainer}>{this.props.city}, {this.props.distance} mi.</Text>
 
         </View>
       </View>
@@ -26,7 +26,6 @@ export default class InfoBar extends React.Component {
       </View>
     );
   }
-
 }
 
   const styles = StyleSheet.create({
@@ -47,12 +46,17 @@ export default class InfoBar extends React.Component {
   },
   smallContainer: {
     height: 50,
-    borderColor: 'royalblue', 
-    borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  detailContainer:{
+  nameContainer:{
+    fontSize: 30,
+    style: 'bold'
+  },
+  locationContainer:{
+    fontSize: 18,
+  },
+   detailContainer:{
     fontSize: 20,
-  }
-});
+  },
+  });
