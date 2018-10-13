@@ -51,7 +51,7 @@ export default class InfoBar extends React.Component {
   },
   nameContainer:{
     fontSize: 30,
-    style: 'bold'
+    fontWeight: 'bold'
   },
   locationContainer:{
     fontSize: 18,

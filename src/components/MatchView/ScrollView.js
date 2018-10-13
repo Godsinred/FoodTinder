@@ -25,7 +25,7 @@ export default class ScrollView extends Component
   }
 
   componentDidUpdate(oldprops) {
-    //Start getting the first batch of data from reddit
+    //Start getting the first batch of data from yelp fusion
     getReview(this.props.businessId).then(response =>{
       console.log(JSON.stringify(response));
       this.setState({
