@@ -53,7 +53,7 @@ export default class ScrollView extends Component {
       <View style={styles.scrollView}>
         <FlatList
           data={this.state.reviews}
-          renderItem={({ item }) => <Text>{`${item.name} ${item.text}`}</Text>}
+          renderItem={({ item }) => <Text>{`${item.user.name} ${item.text}`}</Text>}
           keyExtractor={(item, index) => item.id}
         // extraData={this.state}
         />
@@ -63,7 +63,8 @@ export default class ScrollView extends Component {
 }
 
 const styles = StyleSheet.create({
-    scrollView: {
-      alignItems: 'stretch'
-    }
-})
+  scrollView: {
+    alignItems: 'stretch',
+    backgroundColor: 'powderblue'
+  }
+});

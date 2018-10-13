@@ -6,8 +6,8 @@ import Swiper from 'react-native-deck-swiper'
 
 import { searchByLocation, getBusinessDetails, getReview, businessesFromJSON } from '../../YelpApi/YelpApiFunctions';
 import ButtonGroup from './ButtonGroup';
-import ScrollView from './ScrollView'
-
+import ScrollView from './ScrollView';
+import CardContainer from '../CardContainer/CardContainer';
 
 export default class MatchViewContainer extends Component {
 
@@ -43,6 +43,8 @@ export default class MatchViewContainer extends Component {
     renderCard = (business, index) => {
         return (
             <View style={styles.card}>
+                <Text style={styles.text}>{business.name}</Text>
+                <CardContainer business={business}></CardContainer>
                 <ScrollView
                 style={{'flex': 1}}
                 businessId={business.id}
@@ -62,6 +64,7 @@ export default class MatchViewContainer extends Component {
         return (
             <View style={styles.container}>
                 <Swiper
+                    marginTop={-50}
                     style={styles.container}
                     cards={this.state.businesses}
                     renderCard={(card, index) => {
@@ -72,80 +75,8 @@ export default class MatchViewContainer extends Component {
                     cardIndex={0}
                     backgroundColor={'#4FD0E9'}
                     stackSize={3}
-                    overlayLables={{
-                        bottom: {
-                            element: <Text>BLEAH</Text>, /* Optional */
-                            title: 'BLEAH',
-                            style: {
-                                label: {
-                                    backgroundColor: 'black',
-                                    borderColor: 'black',
-                                    color: 'white',
-                                    borderWidth: 1
-                                },
-                                wrapper: {
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }
-                            }
-                        },
-                        left: {
-                            element: <Text>NOPE</Text>, /* Optional */
-                            title: 'NOPE',
-                            style: {
-                                label: {
-                                    backgroundColor: 'black',
-                                    borderColor: 'black',
-                                    color: 'white',
-                                    borderWidth: 1
-                                },
-                                wrapper: {
-                                    flexDirection: 'column',
-                                    alignItems: 'flex-end',
-                                    justifyContent: 'flex-start',
-                                    marginTop: 30,
-                                    marginLeft: -30
-                                }
-                            }
-                        },
-                        right: {
-                            element: <Text>LIKE</Text>, /* Optional */
-                            title: 'LIKE',
-                            style: {
-                                label: {
-                                    backgroundColor: 'black',
-                                    borderColor: 'black',
-                                    color: 'white',
-                                    borderWidth: 1
-                                },
-                                wrapper: {
-                                    flexDirection: 'column',
-                                    alignItems: 'flex-start',
-                                    justifyContent: 'flex-start',
-                                    marginTop: 30,
-                                    marginLeft: 30
-                                }
-                            }
-                        },
-                        top: {
-                            element: <Text>SUPER</Text>, /* Optional */
-                            title: 'SUPER LIKE',
-                            style: {
-                                label: {
-                                    backgroundColor: 'black',
-                                    borderColor: 'black',
-                                    color: 'white',
-                                    borderWidth: 1
-                                },
-                                wrapper: {
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }
-                            }
-                        }
-                    }}
+                    verticalSwipe={false}
+
                 >
                     <Button
                         onPress={() => { console.log('oulala') }}
@@ -166,12 +97,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5FCFF'
     },
     card: {
-        flex: 1,
+        flex: .98,
         borderRadius: 4,
         borderWidth: 2,
         borderColor: '#E8E8E8',
         justifyContent: 'center',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        alignContent: 'stretch'
     },
     text: {
         textAlign: 'center',
