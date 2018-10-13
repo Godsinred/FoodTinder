@@ -53,8 +53,11 @@ export default class MainContainer extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
+<<<<<<< HEAD
               <Navbar></Navbar>
                 <Text>MainContainer</Text>
+=======
+>>>>>>> 86673a4db7872e4592f945260b6831885533401d
                 <MatchViewContainer
                 latitude={this.state.location.latitude}
                 longitude={this.state.location.longitude}
@@ -65,6 +68,7 @@ export default class MainContainer extends Component {
     }
 }
 
+<<<<<<< HEAD
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -79,3 +83,5 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 });
+=======
+>>>>>>> 86673a4db7872e4592f945260b6831885533401d

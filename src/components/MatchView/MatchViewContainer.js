@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
 // import NavBar from './navbar';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button, FlatList, List, ListItem } from 'react-native';
 import PropTypes from 'prop-types';
+<<<<<<< HEAD
 import ButtonGroup from './ButtonGroup';
 import { searchByLocation, getBusinessDetails } from '../../YelpApi/YelpApiFunctions';
+=======
+import Swiper from 'react-native-deck-swiper'
+
+import { searchByLocation, getBusinessDetails, getReview } from '../../YelpApi/YelpApiFunctions';
+import ButtonGroup from './ButtonGroup';
+import ScrollView from './ScrollView'
+>>>>>>> 86673a4db7872e4592f945260b6831885533401d
 
 
 export default class MatchViewContainer extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
-            cardStack: [],
-            location: this.props.location
-        };
+            cards: ['1', '2', '3'],
+            swipedAllCards: false,
+            swipeDirection: '',
+            isSwipingBack: false,
+            cardIndex: 0,
+            location: this.props.location,
+            businesses: []
+          }
     }
 
 
@@ -22,26 +36,130 @@ export default class MatchViewContainer extends Component {
         console.log(`original props: ${JSON.stringify(oldProps)}`)
         console.log(`New props: ${JSON.stringify(this.props)}`)
         if (this.props.latitude !== oldProps.latitude && this.props.longitude !== oldProps.longitude) {
-            // searchByLocation(this.props).then(results =>{
-            //     results.businesses.forEach(business =>{
-            //         this.createCard(business)
-            //     })
-            // })
+            searchByLocation(this.props).then(results => {
+                console.log(typeof(results))
+                this.setState({
+                    businesses: results
+                })
+            })
         }
     }
 
-    createCard(business) {
-        console.log(`Card created for ${business.id}`);
-        return business.id;
+    renderCard = (card, index) =>{
+
     }
+
+    onSwipedAllCards = () => {
+        this.setState({
+          swipedAllCards: true
+        })
+      };
 
     render() {
         return (
             <View style={styles.container}>
+<<<<<<< HEAD
                 <View style={styles.container}>
                     <Text>MatchViewContainer</Text>
                 </View>
                 <ButtonGroup onPress={()=>{alert("i like unicornss")}}></ButtonGroup>
+=======
+                <Swiper
+                    cards={this.state.businesses}
+                    renderCard={(card) => {
+                        return (
+                            <View style={styles.card}>
+                                <Text style={styles.text}>{card.name}</Text>
+                            </View>
+                        )
+                    }}
+                    onSwiped={(cardIndex) => { console.log(cardIndex) }}
+                    onSwipedAll={() => { console.log('onSwipedAll') }}
+                    cardIndex={0}
+                    backgroundColor={'#4FD0E9'}
+                    stackSize={3}
+                    overlayLables={{
+                        bottom: {
+                            element: <Text>BLEAH</Text>, /* Optional */
+                            title: 'BLEAH',
+                            style: {
+                                label: {
+                                    backgroundColor: 'black',
+                                    borderColor: 'black',
+                                    color: 'white',
+                                    borderWidth: 1
+                                },
+                                wrapper: {
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }
+                            }
+                        },
+                        left: {
+                            element: <Text>NOPE</Text>, /* Optional */
+                            title: 'NOPE',
+                            style: {
+                                label: {
+                                    backgroundColor: 'black',
+                                    borderColor: 'black',
+                                    color: 'white',
+                                    borderWidth: 1
+                                },
+                                wrapper: {
+                                    flexDirection: 'column',
+                                    alignItems: 'flex-end',
+                                    justifyContent: 'flex-start',
+                                    marginTop: 30,
+                                    marginLeft: -30
+                                }
+                            }
+                        },
+                        right: {
+                            element: <Text>LIKE</Text>, /* Optional */
+                            title: 'LIKE',
+                            style: {
+                                label: {
+                                    backgroundColor: 'black',
+                                    borderColor: 'black',
+                                    color: 'white',
+                                    borderWidth: 1
+                                },
+                                wrapper: {
+                                    flexDirection: 'column',
+                                    alignItems: 'flex-start',
+                                    justifyContent: 'flex-start',
+                                    marginTop: 30,
+                                    marginLeft: 30
+                                }
+                            }
+                        },
+                        top: {
+                            element: <Text>SUPER</Text>, /* Optional */
+                            title: 'SUPER LIKE',
+                            style: {
+                                label: {
+                                    backgroundColor: 'black',
+                                    borderColor: 'black',
+                                    color: 'white',
+                                    borderWidth: 1
+                                },
+                                wrapper: {
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }
+                            }
+                        }
+                    }}
+                >
+                    <Button
+                        onPress={() => { console.log('oulala') }}
+                        title="Press me">
+                        You can press me
+                    </Button>
+                </Swiper>
+>>>>>>> 86673a4db7872e4592f945260b6831885533401d
             </View>
 
         )
@@ -51,15 +169,37 @@ export default class MatchViewContainer extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: 'powderblue',
-        alignItems: 'stretch',
-        justifyContent: 'center'
+      flex: 1,
+      backgroundColor: '#F5FCFF'
     },
-    buttonGroup:{
-        alignSelf: 'flex-end'
+    card: {
+      flex: 1,
+      borderRadius: 4,
+      borderWidth: 2,
+      borderColor: '#E8E8E8',
+      justifyContent: 'center',
+      backgroundColor: 'white'
+    },
+<<<<<<< HEAD
+    text: {
+      textAlign: 'center',
+      fontSize: 50,
+      backgroundColor: 'transparent'
+    },
+    done: {
+      textAlign: 'center',
+      fontSize: 30,
+      color: 'white',
+      backgroundColor: 'transparent'
     }
+  })
+=======
+    scrollView: {
+
+    }
+
 })
+>>>>>>> fc3b0c29a0b739e0002e3a2a6a1cf3cb8ca921c4
 
 MatchViewContainer.propTypes = {
     latitude: PropTypes.number,
