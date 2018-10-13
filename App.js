@@ -3,8 +3,13 @@ import YelpApi from './src/YelpApi/YelpApiClass.js'
 import { StyleSheet, Text, View, Button } from 'react-native';
 
 import MainContainer from './src/components/MainContainer/MainContainer';
+import {addToMatches, removeAllItems} from './src/db/DbWrapperFunctions';
 
 export default class App extends React.Component {
+
+  componentWillMount(){
+    removeAllItems()
+  }
 
   render() {
     return (
