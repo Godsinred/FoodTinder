@@ -11,15 +11,15 @@ const ButtonGroup = ({ onPress, children }) => {
   return (
     <View style = { constainerStyle }>
       <TouchableOpacity onPress={onPress} style={buttonStyle}>
-        <Image style={{width: 50, height: 50, alignSelf: 'center'}} source={require("./Assets/redX.png")}/>
+        <Image style={{width: 50, height: 50, alignSelf: 'center'}} source={require("../../Assets/redX.png")}/>
       </TouchableOpacity>
       <View style = {{ padding: 10 }} />
       <TouchableOpacity onPress={onPress} style={buttonStyle}>
-        <Image style={{width: 50, height: 50, alignSelf: 'center'}} source={require("./Assets/rubbyDucky.png")}/>
+        <Image style={{width: 50, height: 50, alignSelf: 'center'}} source={require("../../Assets/rubbyDucky.png")}/>
       </TouchableOpacity>
       <View style = {{ padding: 10 }} />
       <TouchableOpacity onPress={onPress} style={buttonStyle}>
-        <Image style={{width: 50, height: 50, alignSelf: 'center'}} source={require("./Assets/greenCheck.png")}/>
+        <Image style={{width: 50, height: 50, alignSelf: 'center'}} source={require("../../Assets/greenCheck.png")}/>
       </TouchableOpacity>
     </View>
   );
