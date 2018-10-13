@@ -22,7 +22,7 @@ export default class MatchViewContainer extends Component {
             cardIndex: 0,
             location: this.props.location,
             businesses: []
-          }
+        }
     }
 
 
@@ -32,7 +32,7 @@ export default class MatchViewContainer extends Component {
         console.log(`New props: ${JSON.stringify(this.props)}`)
         if (this.props.latitude !== oldProps.latitude && this.props.longitude !== oldProps.longitude) {
             searchByLocation(this.props).then(results => {
-                console.log(typeof(results))
+                console.log(typeof (results))
                 this.setState({
                     businesses: results
                 })
@@ -40,27 +40,27 @@ export default class MatchViewContainer extends Component {
         }
     }
 
-    renderCard = (card, index) =>{
-
+    renderCard = (business, index) => {
+        return (
+            <View style={styles.card}>
+                <Text style={styles.text}>{business.name}</Text>
+            </View>
+        )
     }
 
     onSwipedAllCards = () => {
         this.setState({
-          swipedAllCards: true
+            swipedAllCards: true
         })
-      };
+    };
 
     render() {
         return (
             <View style={styles.container}>
                 <Swiper
                     cards={this.state.businesses}
-                    renderCard={(card) => {
-                        return (
-                            <View style={styles.card}>
-                                <Text style={styles.text}>{card.name}</Text>
-                            </View>
-                        )
+                    renderCard={(card, index) => {
+                        return this.renderCard(card, index);
                     }}
                     onSwiped={(cardIndex) => { console.log(cardIndex) }}
                     onSwipedAll={() => { console.log('onSwipedAll') }}
@@ -156,37 +156,29 @@ export default class MatchViewContainer extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#F5FCFF'
+        flex: 1,
+        backgroundColor: '#F5FCFF'
     },
     card: {
-      flex: 1,
-      borderRadius: 4,
-      borderWidth: 2,
-      borderColor: '#E8E8E8',
-      justifyContent: 'center',
-      backgroundColor: 'white'
+        flex: 1,
+        borderRadius: 4,
+        borderWidth: 2,
+        borderColor: '#E8E8E8',
+        justifyContent: 'center',
+        backgroundColor: 'white'
     },
-<<<<<<< HEAD
     text: {
-      textAlign: 'center',
-      fontSize: 50,
-      backgroundColor: 'transparent'
+        textAlign: 'center',
+        fontSize: 50,
+        backgroundColor: 'transparent'
     },
     done: {
-      textAlign: 'center',
-      fontSize: 30,
-      color: 'white',
-      backgroundColor: 'transparent'
+        textAlign: 'center',
+        fontSize: 30,
+        color: 'white',
+        backgroundColor: 'transparent'
     }
-  })
-=======
-    scrollView: {
-
-    }
-
 })
->>>>>>> fc3b0c29a0b739e0002e3a2a6a1cf3cb8ca921c4
 
 MatchViewContainer.propTypes = {
     latitude: PropTypes.number,
