@@ -15,7 +15,6 @@ export default class App extends React.Component {
       <View>
         <Navbar text={buttonText}></Navbar>
         <MainContainer></MainContainer>
-
       </View>
 
     );

@@ -22,22 +22,24 @@ export default class MatchViewContainer extends Component {
         console.log(`original props: ${JSON.stringify(oldProps)}`)
         console.log(`New props: ${JSON.stringify(this.props)}`)
         if (this.props.latitude !== oldProps.latitude && this.props.longitude !== oldProps.longitude) {
-            searchByLocation(this.props).then(results =>{
-                results.businesses.forEach(business =>{
-                    this.createCard(business)
-                })
-            })
+            // searchByLocation(this.props).then(results =>{
+            //     results.businesses.forEach(business =>{
+            //         this.createCard(business)
+            //     })
+            // })
         }
     }
 
     createCard(business) {
-        console.log(`Card created for ${business.name}`);
+        console.log(`Card created for ${business.id}`);
         return business.id;
     }
 
     render() {
         return (
-            <View>
+            <View
+                style={styles.container}
+            >
                 <Text>MatchViewContainer</Text>
             </View>
         )
@@ -46,13 +48,9 @@ export default class MatchViewContainer extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'flex-start'
-    },
-    buttonGroup: {
-        justifyContent: 'flex-end'
+    container:{
+        // flex: 1,
+        backgroundColor: 'powderblue',
     }
 })
 
