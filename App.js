@@ -12,13 +12,15 @@ export default class App extends React.Component {
     // this can either be back button or Match Me!
     buttonText = 'Match me!'
     return (
-
-      <View>
-        <Navbar text={buttonText}></Navbar>
+      <View style={{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      }}>
+        <Navbar text={buttonText} onPress={()=>{alert("You are matched!")}}></Navbar>
         <MainContainer></MainContainer>
-        <ButtonGroup></ButtonGroup>
+        <ButtonGroup onPress={()=>{alert("i like unicornss")}}></ButtonGroup>
       </View>
-
     );
   }
 }

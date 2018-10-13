@@ -3,7 +3,7 @@ import { Text, View, Image, Linking } from 'react-native';
 import CardSection from './CardSection';
 import Button from './Button';
 
-const Navbar = ({ text }) => {
+const Navbar = ({ onPress, text }) => {
   const {
     navBarStyle,
     constainerStyle
@@ -11,7 +11,7 @@ const Navbar = ({ text }) => {
   return (
     <View>
       <CardSection cardStyle={constainerStyle}>
-        <Button>
+        <Button onPress = { onPress }>
           { text }
         </Button>
       </CardSection>
