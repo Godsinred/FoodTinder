@@ -4,7 +4,7 @@ import { Platform, StyleSheet, Text, View, Button, FlatList, List, ListItem } fr
 import PropTypes from 'prop-types';
 import Swiper from 'react-native-deck-swiper'
 
-import { searchByLocation, getBusinessDetails, getReview } from '../../YelpApi/YelpApiFunctions';
+import { searchByLocation, getBusinessDetails, getReview, businessesFromJSON } from '../../YelpApi/YelpApiFunctions';
 import ButtonGroup from './ButtonGroup';
 import ScrollView from './ScrollView'
 
