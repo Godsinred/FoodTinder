@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import NavBar from './navbar';
-import { Platform, StyleSheet, Text, View, Button, FlatList, List, ListItem } from 'react-native';
+import { StyleSheet, Text, View, FlatList, List, ListItem } from 'react-native';
 import PropTypes from 'prop-types';
 import { getReview } from '../../YelpApi/YelpApiFunctions';
 
@@ -25,12 +25,22 @@ export default class ScrollView extends Component
   }
 
   componentDidUpdate(oldprops) {
-    //Start getting the first batch of data from reddit
+    //Start getting the first batch of data from yelp
+    if (this.props.businessId !== oldprops.businessId) {
+        getReview(this.props.businessId).then(results => {
+            this.setState({
+              reviews : [...this.state.reviews, results]
+            })
+            })
+        })
+    }
+    else {
     getReview(this.props.businessId).then(response =>{
       console.log(JSON.stringify(response));
       this.setState({
         reviews: response
       })})
+    }
     }
 
   render() {
@@ -49,9 +59,6 @@ export default class ScrollView extends Component
 
 const styles = StyleSheet.create({
     scrollView: {
-      width: 100
-      height: 100
       alignItems: 'stretch'
     }
-
 })

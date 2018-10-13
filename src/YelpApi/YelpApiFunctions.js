@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const businessSearch = 'https://api.yelp.com/v3/businesses/search';
 const businessDetails = 'https://api.yelp.com/v3/businesses/';
-const apiKey = '3x9-KjtO0tosiOGl5wUI3DAmM9OYogQtkn8wEqLbfAoGzU7dCC1pgAcXbmoRxPXBwOuULLHWGP2QkCFZ5MleAQ3BsTveUihYsElhtd8zw37waJphQZfW8o27hC_CW3Yx';
+const apiKey = 'ljxk8Nt7OSlg7fcOwS7qNUXqzw4x-vyR_Llo4VTLJz1XsBJJA42vemfYiJgVWH0jC6uiM4ptqsFlCvb1iZ-ATT7NHbTqHozCJVBYEhOkbcp8cum5E5a7R5gIlzjCW3Yx';
 const auth = {
     'Authorization': 'Bearer ' + apiKey
 }
@@ -43,7 +43,8 @@ function searchByLocation(location){
 
 function getReview(businessId){
     return axios.get(businessDetails + businessId + '/reviews', {
-        headers: auth
+        headers: auth,
+        limit: 3
     }).then((response) =>{
         return response.data.reviews;
     }).catch( err =>{

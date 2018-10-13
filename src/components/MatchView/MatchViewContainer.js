@@ -63,10 +63,6 @@ const styles = StyleSheet.create({
     buttonGroup: {
         alignSelf: 'flex-end'
     },
-    scrollView: {
-
-    }
-
 })
 
 MatchViewContainer.propTypes = {
