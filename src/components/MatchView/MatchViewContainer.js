@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import NavBar from './navbar';
 import { Platform, StyleSheet, Text, View, Button, FlatList, List, ListItem } from 'react-native';
 import PropTypes from 'prop-types';
+import Swiper from 'react-native-deck-swiper'
 
 import { searchByLocation, getBusinessDetails, getReview } from '../../YelpApi/YelpApiFunctions';
 import ButtonGroup from './ButtonGroup';
@@ -33,7 +34,7 @@ export default class MatchViewContainer extends Component {
 
     createFlatList(business) {
         console.log(business.id)
-        getReview(business.id).then(response =>{
+        getReview(business.id).then(response => {
             console.log('reviews')
             console.log(response);
             this.setState({
@@ -50,15 +51,26 @@ export default class MatchViewContainer extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.container}>
-                    <Text>MatchViewContainer</Text>
-                    <FlatList
-                        data={this.state.reviews}
-                        renderItem={({ item }) => <Text>{item.text}</Text>}
-                        keyExtractor={(item, index) => item.id}
-                        // extraData={this.state}
-                    />
-                </View>
+                <Swiper
+                    cards={['DO', 'MORE', 'OF', 'WHAT', 'MAKES', 'YOU', 'HAPPY']}
+                    renderCard={(card) => {
+                        return (
+                            <View style={styles.card}>
+                                <Text style={styles.text}>{card}</Text>
+                            </View>
+                        )
+                    }}
+                    onSwiped={(cardIndex) => { console.log(cardIndex) }}
+                    onSwipedAll={() => { console.log('onSwipedAll') }}
+                    cardIndex={0}
+                    backgroundColor={'#4FD0E9'}
+                    stackSize={3}>
+                    <Button
+                        onPress={() => { console.log('oulala') }}
+                        title="Press me">
+                        You can press me
+                    </Button>
+                </Swiper>
             </View>
         )
     }
