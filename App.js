@@ -17,7 +17,14 @@ export default class App extends React.Component {
         flexDirection: 'column',
         justifyContent: 'space-between',
       }}>
-        <Navbar text={buttonText} onPress={()=>{alert("You are matched!")}}></Navbar>
+        <Navbar text={buttonText} onPress={()=>{
+          if (buttonText === 'Match me!') {
+            buttonText = 'Back';
+          }
+          else {
+            buttonText = 'Match me!';
+          }
+        }}></Navbar>
         <MainContainer></MainContainer>
         <ButtonGroup onPress={()=>{alert("i like unicornss")}}></ButtonGroup>
       </View>

@@ -15,11 +15,11 @@ const ButtonGroup = ({ onPress, children }) => {
       </TouchableOpacity>
       <View style = {{ padding: 10 }} />
       <TouchableOpacity onPress={onPress} style={buttonStyle}>
-        <Image style={{width: 50, height: 50, alignSelf: 'center'}} source={require("./yellowQuestionMark.jpeg")}/>
+        <Image style={{width: 50, height: 50, alignSelf: 'center'}} source={require("./rubbyDucky.png")}/>
       </TouchableOpacity>
       <View style = {{ padding: 10 }} />
       <TouchableOpacity onPress={onPress} style={buttonStyle}>
-        <Image style={{width: 50, height: 50, alignSelf: 'center'}} source={require("./greenCheckMark.jpg")}/>
+        <Image style={{width: 50, height: 50, alignSelf: 'center'}} source={require("./greenCheck.png")}/>
       </TouchableOpacity>
     </View>
   );
@@ -41,14 +41,13 @@ const styles = {
     borderColor: '#007aff'
   },
   constainerStyle: {
-    borderBottomWidth: 1,
-    marginTop: 15,
+    marginTop: 10,
+    marginBottom: 10,
     padding: 5,
     backgroundColor: '#fff',
     alignSelf: 'center',
     position: 'absolute',
     flexDirection: 'row',
-    borderColor: '#ddd',
     position: 'relative'
   }
 };
