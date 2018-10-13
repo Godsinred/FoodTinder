@@ -35,7 +35,7 @@ function searchByLocation(location){
     }).then((response, reject) => {
         // uncomment for debugging!
         // console.log(response.data);
-        return response.data;
+        return response.data.businesses;
     }).catch(err => {
         console.log('You fucked up: ' + err);
     })
@@ -45,10 +45,10 @@ function getReview(businessId){
     return axios.get(businessDetails + businessId + '/reviews', {
         headers: auth
     }).then((response) =>{
-        return response.reviews;
+        return response.data.reviews;
     }).catch( err =>{
         console.log(err.message);
     })
 }
 
-export {getBusinessDetails, searchByLocation};
+export {getBusinessDetails, searchByLocation, getReview};
