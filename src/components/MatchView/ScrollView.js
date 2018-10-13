@@ -15,8 +15,6 @@ export default class ScrollView extends Component {
   createFlatList(business) {
     console.log(business.id)
     getReview(business.id).then(response => {
-      console.log('reviews')
-      console.log(response);
       this.setState({
         reviews: response
       })
@@ -25,7 +23,6 @@ export default class ScrollView extends Component {
 
   componentWillMount(){
     getReview(this.props.businessId).then(response => {
-      console.log(response);
       this.setState({
         reviews: response
       })
@@ -33,14 +30,8 @@ export default class ScrollView extends Component {
   }
 
   componentDidUpdate(oldProps) {
-    //Start getting the first batch of data from reddit
-    console.log('ScrollView componentDidUpdate')
-    console.log(`original props: ${JSON.stringify(oldProps)}`)
-    console.log(`New props: ${JSON.stringify(this.props)}`)
-
     if (this.props.businessId !== oldProps.businessId) {
       getReview(this.props.businessId).then(response => {
-        console.log(JSON.stringify(response));
         this.setState({
           reviews: response
         })

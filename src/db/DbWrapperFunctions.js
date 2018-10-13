@@ -1,22 +1,8 @@
-import {AsyncStroage} from 'react-native';
-
-async function getAllMatches(){
-    try{
-        return await AsyncStroage.getAllKeys().then(keys =>{
-            return await AsyncStroage.multiGet(keys, (matches) =>{
-                //note this returns key value pairs in arrays ['business ID', 'Business Object in string form']
-                // you will need to convert this to obets using map or something
-            })
-        })
-    } catch(error) {
-        console.log('Error Retrieving matches');
-        console.log(error.message);
-    }
-}
+import {AsyncStorage} from 'react-native';
 
 async function addToMatches(business){
     try{
-        await AsyncStroage.setItem(business.id, JSON.stringify(business));
+        await AsyncStorage.setItem(business.id, JSON.stringify(business));
     } catch (error){
         console.log('Error adding to matches');
         console.log(error.message);
@@ -25,7 +11,7 @@ async function addToMatches(business){
 
 async function getBusinessesAlreadySeen(){
     try{
-        await AsyncStroage.getAllKeys().then(keys=>{
+        await AsyncStorage.getAllKeys().then((err, keys)=>{
             return keys;
         })
     } catch (error){
@@ -34,4 +20,4 @@ async function getBusinessesAlreadySeen(){
     }
 }
 
-export {getAllMatches, getAllKeys, getBusinessesAlreadySeen};
+export {getBusinessesAlreadySeen, addToMatches};

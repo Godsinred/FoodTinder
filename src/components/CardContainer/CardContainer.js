@@ -6,6 +6,7 @@ import { Constants } from 'expo';
 import InfoBar from '../InfoBar/InfoBar';
 import PictureContainer from '../PictureContainer/PictureContainer';
 import ScrollView from '../MatchView/ScrollView';
+
 export default class CardContainer extends React.Component {
     render() {
         let pic = {uri : this.props.business.image_url};
@@ -23,12 +24,12 @@ export default class CardContainer extends React.Component {
             </View>
         );
     }
-
 }
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 10,
         alignSelf: 'stretch'
-    },
+    }
 });
