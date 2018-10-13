@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 import MainContainer from './src/components/MainContainer/MainContainer';
 import Navbar from './src/components/MainContainer/Navbar';
+import ButtonGroup from './src/components/MatchView/ButtonGroup';
 
 export default class App extends React.Component {
 
@@ -11,10 +12,11 @@ export default class App extends React.Component {
     // this can either be back button or Match Me!
     buttonText = 'Match me!'
     return (
-      //<Navbar></Navbar>
+
       <View>
         <Navbar text={buttonText}></Navbar>
         <MainContainer></MainContainer>
+        <ButtonGroup></ButtonGroup>
       </View>
 
     );

@@ -20,8 +20,7 @@ const styles = {
     color: '#007aff',
     fontSize: 16,
     fontWeight: '600',
-    paddingTop: 5,
-    paddingBottom: 5
+    padding: 3
   },
   buttonStyle: {
     flex: 0.25, // expand to fit as much content as you can
