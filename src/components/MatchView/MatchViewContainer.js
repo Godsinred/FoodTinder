@@ -7,7 +7,7 @@ import Swiper from 'react-native-deck-swiper'
 import { searchByLocation, getBusinessDetails, getReview, businessesFromJSON } from '../../YelpApi/YelpApiFunctions';
 import ButtonGroup from './ButtonGroup';
 import CardContainer from '../CardContainer/CardContainer';
-import {getBusinessesAlreadySeen, addToMatches} from '../../db/DbWrapperFunctions';
+import {addToMatches, removeAllItems, printAllKeys, getAllMatches} from '../../db/DbWrapperFunctions';
 
 export default class MatchViewContainer extends Component {
 
@@ -54,8 +54,9 @@ export default class MatchViewContainer extends Component {
     rightSwipe = () => {
         //save to async storage
         console.log(`Right Swiped on ${this.state.businesses[this.state.cardIndex].name}`)
-        let s = 1
         addToMatches(this.state.businesses[this.state.cardIndex])
+        printAllKeys();
+        getAllMatches()
     }
 
     render() {
