@@ -8,10 +8,14 @@ import Navbar from './src/components/MainContainer/Navbar';
 export default class App extends React.Component {
 
   render() {
+    // this can either be back button or Match Me!
+    buttonText = 'Match me!'
     return (
       //<Navbar></Navbar>
       <View>
+        <Navbar text={buttonText}></Navbar>
         <MainContainer></MainContainer>
+
       </View>
 
     );
