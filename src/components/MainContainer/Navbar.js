@@ -8,6 +8,7 @@ const Navbar = ({ onPress, text }) => {
     navBarStyle,
     constainerStyle
   } = styles;
+
   return (
     <View>
       <CardSection cardStyle={constainerStyle}>
