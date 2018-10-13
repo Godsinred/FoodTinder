@@ -2,16 +2,11 @@ import React, { Component } from 'react';
 // import NavBar from './navbar';
 import { Platform, StyleSheet, Text, View, Button, FlatList, List, ListItem } from 'react-native';
 import PropTypes from 'prop-types';
-<<<<<<< HEAD
-import ButtonGroup from './ButtonGroup';
-import { searchByLocation, getBusinessDetails } from '../../YelpApi/YelpApiFunctions';
-=======
 import Swiper from 'react-native-deck-swiper'
 
 import { searchByLocation, getBusinessDetails, getReview } from '../../YelpApi/YelpApiFunctions';
 import ButtonGroup from './ButtonGroup';
 import ScrollView from './ScrollView'
->>>>>>> 86673a4db7872e4592f945260b6831885533401d
 
 
 export default class MatchViewContainer extends Component {
@@ -58,12 +53,6 @@ export default class MatchViewContainer extends Component {
     render() {
         return (
             <View style={styles.container}>
-<<<<<<< HEAD
-                <View style={styles.container}>
-                    <Text>MatchViewContainer</Text>
-                </View>
-                <ButtonGroup onPress={()=>{alert("i like unicornss")}}></ButtonGroup>
-=======
                 <Swiper
                     cards={this.state.businesses}
                     renderCard={(card) => {
@@ -159,7 +148,6 @@ export default class MatchViewContainer extends Component {
                         You can press me
                     </Button>
                 </Swiper>
->>>>>>> 86673a4db7872e4592f945260b6831885533401d
             </View>
 
         )
@@ -180,7 +168,6 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       backgroundColor: 'white'
     },
-<<<<<<< HEAD
     text: {
       textAlign: 'center',
       fontSize: 50,
@@ -193,13 +180,6 @@ const styles = StyleSheet.create({
       backgroundColor: 'transparent'
     }
   })
-=======
-    scrollView: {
-
-    }
-
-})
->>>>>>> fc3b0c29a0b739e0002e3a2a6a1cf3cb8ca921c4
 
 MatchViewContainer.propTypes = {
     latitude: PropTypes.number,
