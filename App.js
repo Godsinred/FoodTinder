@@ -13,10 +13,10 @@ export default class App extends React.Component {
     buttonText = 'Match me!'
     return (
 
-      <View>
+      <View style={styles.container}>
         <Navbar text={buttonText}></Navbar>
         <MainContainer></MainContainer>
-        <ButtonGroup></ButtonGroup>
+        
       </View>
 
     );

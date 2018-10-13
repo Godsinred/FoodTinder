@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import PropTypes from 'prop-types';
 
-import {searchByLocation, getBusinessDetails} from '../../YelpApi/YelpApiFunctions';
+import { searchByLocation, getBusinessDetails } from '../../YelpApi/YelpApiFunctions';
+import ButtonGroup from './ButtonGroup';
 
 
 export default class MatchViewContainer extends Component {
@@ -37,10 +38,10 @@ export default class MatchViewContainer extends Component {
 
     render() {
         return (
-            <View
-                style={styles.container}
-            >
-                <Text>MatchViewContainer</Text>
+            <View style={styles.container}>
+                <View style={styles.container}>
+                    <Text>MatchViewContainer</Text>
+                </View>
             </View>
         )
     }
@@ -48,9 +49,14 @@ export default class MatchViewContainer extends Component {
 }
 
 const styles = StyleSheet.create({
-    container:{
-        // flex: 1,
+    container: {
+        flex: 1,
         backgroundColor: 'powderblue',
+        alignItems: 'stretch',
+        justifyContent: 'center'
+    },
+    buttonGroup:{
+        alignSelf: 'flex-end'
     }
 })
 
