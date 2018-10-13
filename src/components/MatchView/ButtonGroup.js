@@ -6,20 +6,21 @@ const ButtonGroup = ({ onPress, children }) => {
   const {
     textStyle,
     buttonStyle,
-    constainerStyle
+    constainerStyle,
+    imageStyle
   } = styles;
   return (
     <View style = { constainerStyle }>
       <TouchableOpacity onPress={onPress} style={buttonStyle}>
-        <Image style={{width: 50, height: 50, alignSelf: 'center'}} source={require("../../Assets/redX.png")}/>
+        <Image style={ imageStyle } source={require("../../Assets/redX.png")}/>
       </TouchableOpacity>
-      <View style = {{ padding: 10 }} />
+      <View style = {{ flex: 0.05 }} />
       <TouchableOpacity onPress={onPress} style={buttonStyle}>
-        <Image style={{width: 50, height: 50, alignSelf: 'center'}} source={require("../../Assets/rubbyDucky.png")}/>
+        <Image style={ imageStyle } source={require("../../Assets/rubbyDucky.png")}/>
       </TouchableOpacity>
-      <View style = {{ padding: 10 }} />
+      <View style = {{ flex: 0.05 }} />
       <TouchableOpacity onPress={onPress} style={buttonStyle}>
-        <Image style={{width: 50, height: 50, alignSelf: 'center'}} source={require("../../Assets/greenCheck.png")}/>
+        <Image style={ imageStyle } source={require("../../Assets/greenCheck.png")}/>
       </TouchableOpacity>
     </View>
   );
@@ -41,14 +42,18 @@ const styles = {
     borderColor: '#007aff'
   },
   constainerStyle: {
-    marginTop: 10,
-    marginBottom: 10,
-    padding: 5,
+    padding: 15,
+    alignItems: 'stretch',
     backgroundColor: '#fff',
     alignSelf: 'center',
-    position: 'absolute',
     flexDirection: 'row',
-    position: 'relative'
+    position: 'relative',
+    flexWrap: 'wrap',
+  },
+  imageStyle: {
+    width: 50,
+    height: 50,
+    alignSelf: 'center'
   }
 };
 

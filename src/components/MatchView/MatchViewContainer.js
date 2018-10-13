@@ -149,6 +149,7 @@ export default class MatchViewContainer extends Component {
                     </Button>
                 </Swiper>
             </View>
+
         )
     }
 
@@ -173,12 +174,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent'
     },
     done: {
-        textAlign: 'center',
-        fontSize: 30,
-        color: 'white',
-        backgroundColor: 'transparent'
+      textAlign: 'center',
+      fontSize: 30,
+      color: 'white',
+      backgroundColor: 'transparent'
     }
-})
+  })
 
 MatchViewContainer.propTypes = {
     latitude: PropTypes.number,
