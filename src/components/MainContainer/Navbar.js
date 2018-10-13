@@ -5,20 +5,32 @@ import Button from './Button';
 
 const Navbar = ({ text }) => {
   const {
-    navBarStyle
+    navBarStyle,
+    constainerStyle
   } = styles;
   return (
-      <CardSection>
+    <View>
+      <CardSection cardStyle={constainerStyle}>
         <Button>
           { text }
         </Button>
       </CardSection>
+    </View>
   );
 };
 const styles = {
   navBarStyle: {
     flexDirection: 'column',
     justifyContent: 'space-around'
+  },
+  constainerStyle: {
+    borderBottomWidth: 1,
+    marginTop: 15,
+    padding: 5,
+    backgroundColor: '#fff',
+    flexDirection: 'row',
+    borderColor: '#ddd',
+    position: 'relative'
   }
 };
 
