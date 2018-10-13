@@ -51,7 +51,6 @@ export default class MainContainer extends Component {
     };
 
     render() {
-        let text = 'Waiting..';
         return (
             <View style={{flex: 1}}>
                 <Text>MainContainer</Text>

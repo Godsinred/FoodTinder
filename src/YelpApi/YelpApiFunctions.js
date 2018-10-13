@@ -41,4 +41,14 @@ function searchByLocation(location){
     })
 }
 
+function getReview(businessId){
+    return axios.get(businessDetails + businessId + '/reviews', {
+        headers: auth
+    }).then((response) =>{
+        return response.reviews;
+    }).catch( err =>{
+        console.log(err.message);
+    })
+}
+
 export {getBusinessDetails, searchByLocation};
