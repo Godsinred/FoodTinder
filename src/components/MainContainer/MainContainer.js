@@ -53,7 +53,7 @@ export default class MainContainer extends Component {
     render() {
         let text = 'Waiting..';
         return (
-            <View>
+            <View style={{flex: 1}}>
                 <Text>MainContainer</Text>
                 <MatchViewContainer
                 latitude={this.state.location.latitude}

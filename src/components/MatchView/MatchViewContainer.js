@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import PropTypes from 'prop-types';
 
-import {searchByLocation, getBusinessDetails} from '../../YelpApi/YelpApiFunctions';
+import { searchByLocation, getBusinessDetails } from '../../YelpApi/YelpApiFunctions';
+import ButtonGroup from './ButtonGroup';
 
 
 export default class MatchViewContainer extends Component {
@@ -22,23 +23,25 @@ export default class MatchViewContainer extends Component {
         console.log(`original props: ${JSON.stringify(oldProps)}`)
         console.log(`New props: ${JSON.stringify(this.props)}`)
         if (this.props.latitude !== oldProps.latitude && this.props.longitude !== oldProps.longitude) {
-            searchByLocation(this.props).then(results =>{
-                results.businesses.forEach(business =>{
-                    this.createCard(business)
-                })
-            })
+            // searchByLocation(this.props).then(results =>{
+            //     results.businesses.forEach(business =>{
+            //         this.createCard(business)
+            //     })
+            // })
         }
     }
 
     createCard(business) {
-        console.log(`Card created for ${business.name}`);
+        console.log(`Card created for ${business.id}`);
         return business.id;
     }
 
     render() {
         return (
-            <View>
-                <Text>MatchViewContainer</Text>
+            <View style={styles.container}>
+                <View style={styles.container}>
+                    <Text>MatchViewContainer</Text>
+                </View>
             </View>
         )
     }
@@ -48,11 +51,12 @@ export default class MatchViewContainer extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'flex-start'
+        backgroundColor: 'powderblue',
+        alignItems: 'stretch',
+        justifyContent: 'center'
     },
-    buttonGroup: {
-        justifyContent: 'flex-end'
+    buttonGroup:{
+        alignSelf: 'flex-end'
     }
 })
 
