@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import { searchByLocation, getBusinessDetails, getReview } from '../../YelpApi/YelpApiFunctions';
 import ButtonGroup from './ButtonGroup';
+import ScrollView from './ScrollView'
 
 
 export default class MatchViewContainer extends Component {
@@ -14,7 +15,6 @@ export default class MatchViewContainer extends Component {
         this.state = {
             cardStack: [],
             location: this.props.location,
-            reviews: []
         };
     }
 
@@ -26,20 +26,11 @@ export default class MatchViewContainer extends Component {
         if (this.props.latitude !== oldProps.latitude && this.props.longitude !== oldProps.longitude) {
             searchByLocation(this.props).then(results => {
                 console.log(results[0]);
-                this.createFlatList(results[0]);
+                this.setState({
+                  businessId: results[0].id
+                })
             })
         }
-    }
-
-    createFlatList(business) {
-        console.log(business.id)
-        getReview(business.id).then(response =>{
-            console.log('reviews')
-            console.log(response);
-            this.setState({
-                reviews: response
-            })
-        })
     }
 
     createCard(business) {
@@ -52,12 +43,10 @@ export default class MatchViewContainer extends Component {
             <View style={styles.container}>
                 <View style={styles.container}>
                     <Text>MatchViewContainer</Text>
-                    <FlatList
-                        data={this.state.reviews}
-                        renderItem={({ item }) => <Text>{item.text}</Text>}
-                        keyExtractor={(item, index) => item.id}
-                        // extraData={this.state}
-                    />
+                    <ScrollView
+                      businessId={this.state.businessId}
+                    >
+                    </ScrollView>
                 </View>
             </View>
         )
@@ -74,7 +63,8 @@ const styles = StyleSheet.create({
     },
     buttonGroup: {
         alignSelf: 'flex-end'
-    }
+    },
+
 })
 
 MatchViewContainer.propTypes = {
