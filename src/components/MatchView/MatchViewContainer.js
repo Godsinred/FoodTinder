@@ -1,36 +1,33 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 // import NavBar from './navbar';
-import { Platform, StyleSheet, Text, View, Button} from 'react-native';
+import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import PropTypes from 'prop-types';
-import searchByLocation  from '../../YelpApi/YelpApiFunctions';
 
-const component1 = () => <Text>Hello</Text>
-const component2 = () => <Text>World</Text>
-const component3 = () => <Text>ButtonGroup</Text>
+import {searchByLocation, getBusinessDetails} from '../../YelpApi/YelpApiFunctions';
+
 
 export default class MatchViewContainer extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            cardStack: [], 
+            cardStack: [],
             location: this.props.location
         };
     }
 
-    // componentWillMount() {
-    //     searchByLocation(this.props.location).then(results => {
-    //         results.business.forEach(business => {
-    //             this.state.cardStack.push(this.createCard(business))
-    //         })
-    //     })
-    // }
 
-    componentWillReceiveProps(nextProps) {
-        // update original states
-        this.setState({
-          location: nextProps,
-        });
+    componentDidUpdate(oldProps) {
+        console.log('MatchViewContainer componentDidUpdate')
+        console.log(`original props: ${JSON.stringify(oldProps)}`)
+        console.log(`New props: ${JSON.stringify(this.props)}`)
+        if (this.props.latitude !== oldProps.latitude && this.props.longitude !== oldProps.longitude) {
+            searchByLocation(this.props).then(results =>{
+                results.businesses.forEach(business =>{
+                    this.createCard(business)
+                })
+            })
+        }
     }
 
     createCard(business) {
@@ -39,7 +36,6 @@ export default class MatchViewContainer extends Component {
     }
 
     render() {
-        const buttons = [{ element: component1 }, { element: component2 }, { element: component3 }]
         return (
             <View>
                 <Text>MatchViewContainer</Text>

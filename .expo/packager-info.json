@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
@@ -6,4 +7,13 @@
   "expoServerNgrokUrl": "https://h5-nqe.godsinred.foodtinder.exp.direct",
   "packagerNgrokUrl": "https://packager.h5-nqe.godsinred.foodtinder.exp.direct",
   "ngrokPid": 9386
+=======
+  "packagerPort": 19003,
+  "packagerPid": 1768,
+  "expoServerPort": 19000,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
+  "devToolsPort": 19002
+>>>>>>> ab23d092d5d08dc1e9035224fec0f616d3a4b23a
 }

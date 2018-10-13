@@ -11,8 +11,8 @@ export default class MainContainer extends Component {
         super(props);
         this.state = {
             location: {
-                "latitude": 42.3447331,
-                "longitude": -71.071063
+                "latitude": null,
+                "longitude": null
             },
             
         }
@@ -39,14 +39,15 @@ export default class MainContainer extends Component {
         }
 
         let thisLocation = await Location.getCurrentPositionAsync({});
-        let requiredLocation = {
-            latitude: thisLocation.coords.latitude,
-            longitude: thisLocation.coords.longitude
-        }
 
-        this.setState({ location: requiredLocation });
+        this.setState({ 
+            location: {
+                "latitude": thisLocation.coords.latitude,
+                "longitude": thisLocation.coords.longitude
+            }
+        });
         console.log('Got location: ')
-        console.log(requiredLocation);
+        console.log(this.state);
     };
 
     render() {
