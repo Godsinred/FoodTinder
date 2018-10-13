@@ -43,7 +43,11 @@ export default class MatchViewContainer extends Component {
     renderCard = (business, index) => {
         return (
             <View style={styles.card}>
-                <Text style={styles.text}>{business.name}</Text>
+                <ScrollView
+                style={{'flex': 1}}
+                businessId={business.id}
+                >
+                </ScrollView>
             </View>
         )
     }
@@ -55,10 +59,10 @@ export default class MatchViewContainer extends Component {
     };
 
     render() {
-
         return (
             <View style={styles.container}>
                 <Swiper
+                    style={styles.container}
                     cards={this.state.businesses}
                     renderCard={(card, index) => {
                         return this.renderCard(card, index);
@@ -149,7 +153,6 @@ export default class MatchViewContainer extends Component {
                         You can press me
                     </Button>
                 </Swiper>
-                <ButtonGroup></ButtonGroup>
             </View>
 
         )

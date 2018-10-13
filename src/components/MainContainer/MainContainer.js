@@ -54,7 +54,6 @@ export default class MainContainer extends Component {
         return (
             <View style={{flex: 1}}>
                 <Navbar></Navbar>
-                <Text>MainContainer</Text>
                 <MatchViewContainer
                 latitude={this.state.location.latitude}
                 longitude={this.state.location.longitude}
