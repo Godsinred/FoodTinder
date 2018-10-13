@@ -1,11 +1,13 @@
 import axios from 'axios';
+import getData from '../components/utils/fakeData.js'
 
 const businessSearch = 'https://api.yelp.com/v3/businesses/search';
 const businessDetails = 'https://api.yelp.com/v3/businesses/';
-const apiKey = 'ljxk8Nt7OSlg7fcOwS7qNUXqzw4x-vyR_Llo4VTLJz1XsBJJA42vemfYiJgVWH0jC6uiM4ptqsFlCvb1iZ-ATT7NHbTqHozCJVBYEhOkbcp8cum5E5a7R5gIlzjCW3Yx';
+const apiKey = 'BD6IL5Vj_4CpKGWIphUyClb9rPjBOKc--geP80gEojjFCeDSKpiDuyv_XUW1XIK1oPAy9FtDbSprCBALD7VUTJCIn9MFjwosylLnRD8pIusJ8TE-VwszynCNFTrCW3Yx';
 const auth = {
     'Authorization': 'Bearer ' + apiKey
 }
+
 
 function getBusinessDetails(businessId){
     return axios.get(businessDetails + businessId, {
@@ -27,6 +29,7 @@ function searchByLocation(location){
     let options = {
         latitude: location.latitude,
         longitude: location.longitude,
+        limit: 3
     };
 
     return axios.get(businessSearch, {
@@ -35,9 +38,19 @@ function searchByLocation(location){
     }).then((response, reject) => {
         // uncomment for debugging!
         // console.log(response.data);
+        console.log(JSON.stringify(response.data.businesses))
         return response.data.businesses;
     }).catch(err => {
         console.log('You fucked up: ' + err);
+    })
+}
+
+function businessesFromJSON(location){
+    console.log('got here');
+    return new Promise(resolve =>{
+        console.log('inside')
+        console.log(getData);
+        return fakeData;
     })
 }
 
@@ -52,4 +65,4 @@ function getReview(businessId){
     })
 }
 
-export {getBusinessDetails, searchByLocation, getReview};
+export {getBusinessDetails, searchByLocation, getReview, businessesFromJSON};
