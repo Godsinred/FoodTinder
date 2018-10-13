@@ -1,6 +1,6 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
+  "expoServerPort": null,
   "packagerPort": 19001,
   "packagerPid": 17739,
   "expoServerNgrokUrl": "https://h5-nqe.godsinred.foodtinder.exp.direct",
