@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 // import NavBar from './navbar';
 import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import PropTypes from 'prop-types';
-
-import { searchByLocation, getBusinessDetails } from '../../YelpApi/YelpApiFunctions';
 import ButtonGroup from './ButtonGroup';
+import { searchByLocation, getBusinessDetails } from '../../YelpApi/YelpApiFunctions';
 
 
 export default class MatchViewContainer extends Component {
@@ -42,7 +41,9 @@ export default class MatchViewContainer extends Component {
                 <View style={styles.container}>
                     <Text>MatchViewContainer</Text>
                 </View>
+                <ButtonGroup onPress={()=>{alert("i like unicornss")}}></ButtonGroup>
             </View>
+
         )
     }
 

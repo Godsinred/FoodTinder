@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { Platform, StyleSheet, Text, View, Button } from 'react-native';
 import { Constants, Location, Permissions } from 'expo';
 
-
+import Navbar from './Navbar';
 import MatchViewContainer from '../MatchView/MatchViewContainer.js';
 
 export default class MainContainer extends Component {
@@ -14,7 +14,7 @@ export default class MainContainer extends Component {
                 "latitude": null,
                 "longitude": null
             },
-            
+
         }
     }
 
@@ -40,7 +40,7 @@ export default class MainContainer extends Component {
 
         let thisLocation = await Location.getCurrentPositionAsync({});
 
-        this.setState({ 
+        this.setState({
             location: {
                 "latitude": thisLocation.coords.latitude,
                 "longitude": thisLocation.coords.longitude
@@ -53,6 +53,7 @@ export default class MainContainer extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
+              <Navbar></Navbar>
                 <Text>MainContainer</Text>
                 <MatchViewContainer
                 latitude={this.state.location.latitude}
@@ -78,4 +79,3 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 });
-
