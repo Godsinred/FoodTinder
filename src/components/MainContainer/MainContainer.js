@@ -27,7 +27,7 @@ export default class MainContainer extends Component {
       headerLeft: null,
       headerRight: (
         <Button
-          onPress={ () => navigation.navigate('MatchList') }
+          onPress={ () => navigation.navigate('SwipeList') }
           title="Matches"
           style={styles.textStyle}
         />

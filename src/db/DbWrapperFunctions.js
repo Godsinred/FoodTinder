@@ -33,7 +33,6 @@ async function getAllMatches(){
             return AsyncStorage.multiGet(keys, (err, keys) =>{
                 let mapping = keys.map(pair =>{
                     console.log('Mapping: ')
-                    console.log(JSON.parse(pair[1]))
                     return JSON.parse(pair[1])
                 })
                 return mapping;
@@ -42,14 +41,6 @@ async function getAllMatches(){
     } catch(error){
         console.log(error)
     }
-}
-
-async function getRestaurantCount(){
-
-}
-
-async function setRestaurantCount(){
-  
 }
 
 export {addToMatches, removeAllItems, printAllKeys, getAllMatches};

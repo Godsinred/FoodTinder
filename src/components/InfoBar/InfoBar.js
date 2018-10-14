@@ -30,7 +30,7 @@ export default class InfoBar extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.3, 
+    flex: 0.3,
     flexDirection: 'row',
     top: 0,
     bottom: 0
