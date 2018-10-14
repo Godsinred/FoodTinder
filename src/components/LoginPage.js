@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import firebase from 'firebase';
-import LoginForm from './LoginForm';
-import Spinner from './Spinner';
-import Input from './Input';
+import { Header, Button, Spinner } from './LoginPage/common';
+import LoginForm from './LoginPage/LoginForm';
 
 export default class LoginPage extends Component {
   static navigationOptions = {
-    title: 'LoginPage',
+    title: 'Login Page',
+    headerLeft: null
   };
   state = { loggedIn: null };
 
@@ -30,13 +30,17 @@ export default class LoginPage extends Component {
     });
   }
 
+  componentDidUpdate(oldProps) {
+    if (this.props.firebase !== oldProps.firebase) {
+      console.console.log('yay!');
+    }
+  }
+
   renderContent() {
     switch (this.state.loggedIn) {
       case true:
         return (
-          <Button onPress={() => firebase.auth().signOut()}>
-            Log Out
-          </Button>
+          this.props.navigation.navigate('MainContainer')
         );
       case false:
         return <LoginForm />;
@@ -47,10 +51,7 @@ export default class LoginPage extends Component {
 
   render() {
     return (
-      <View>
-        <Text>Authentication </Text>
-        {this.renderContent()}
-      </View>
+        this.renderContent()
     );
   }
 }

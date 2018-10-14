@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 // import NavBar from './navbar';
 import { Platform, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import { Constants, Location, Permissions } from 'expo';
-
 import CardContainer from '../CardContainer/CardContainer';
 import MatchViewContainer from '../MatchView/MatchViewContainer.js';
+import firebase from 'firebase';
 
 
 export default class MainContainer extends Component {
@@ -18,13 +18,20 @@ export default class MainContainer extends Component {
             },
             textValue: "Matches",
             matchBool: true,
+            firebase: firebase
         }
     }
 
-    static navigationOptions = ({ navigation }) => {
+    static navigationOptions = ({ navigation, firebase }) => {
     return {
       headerTitle: 'Food Tinder',
-      headerLeft: null,
+      headerLeft: (
+        <Button
+          onPress={ () => navigation.navigate('LoginPage') }
+          title="Logout"
+          style={styles.textStyle}
+        />
+      ),
       headerRight: (
         <Button
           onPress={ () => navigation.navigate('SwipeList') }
