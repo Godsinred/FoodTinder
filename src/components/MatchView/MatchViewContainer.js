@@ -108,9 +108,9 @@ export default class MatchViewContainer extends Component {
                     </Swiper>
                 </View>
                 <View>
-                    <ButtonGroup
-
-                    ></ButtonGroup>
+                    <ButtonGroup>
+                        business = { this.state.businesses[this.state.cardIndex] }
+                    </ButtonGroup>
                 </View>
             </View>
         )

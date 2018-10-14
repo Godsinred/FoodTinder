@@ -44,4 +44,12 @@ async function getAllMatches(){
     }
 }
 
+async function getRestaurantCount(){
+
+}
+
+async function setRestaurantCount(){
+  
+}
+
 export {addToMatches, removeAllItems, printAllKeys, getAllMatches};

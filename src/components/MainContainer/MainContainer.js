@@ -24,6 +24,7 @@ export default class MainContainer extends Component {
     static navigationOptions = ({ navigation }) => {
     return {
       headerTitle: 'Food Tinder',
+      headerLeft: null,
       headerRight: (
         <Button
           onPress={ () => navigation.navigate('MatchList') }
