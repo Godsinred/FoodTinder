@@ -40,10 +40,6 @@ export default class MatchViewContainer extends Component {
     renderCard = (business, index) => {
         return (
             <View style={styles.card}>
-<<<<<<< HEAD
-                <Text style={styles.text}>{business.name}</Text>
-=======
->>>>>>> fc94612fe053a44206d7324eda3d0eacbb046e2d
                 <CardContainer business={business}></CardContainer>
             </View>
         )
@@ -66,7 +62,6 @@ export default class MatchViewContainer extends Component {
     render() {
         return (
             <View style={styles.container}>
-<<<<<<< HEAD
                 <Swiper
                     marginTop={0}
                     style={styles.container}
@@ -88,7 +83,6 @@ export default class MatchViewContainer extends Component {
                         You can press me
                     </Button>
                 </Swiper>
-=======
                 <View style={styles.container}>
                     <Swiper
                         cardVerticalMargin={10}
@@ -118,7 +112,6 @@ export default class MatchViewContainer extends Component {
 
                     ></ButtonGroup>
                 </View>
->>>>>>> fc94612fe053a44206d7324eda3d0eacbb046e2d
             </View>
         )
     }

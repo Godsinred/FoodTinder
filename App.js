@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import MainContainer from './src/components/MainContainer/MainContainer';
 import AppNavigator from './src/components/AppNavigator';
+import {addToMatches, removeAllItems} from './src/db/DbWrapperFunctions';
 
 export default class App extends React.Component {
 
