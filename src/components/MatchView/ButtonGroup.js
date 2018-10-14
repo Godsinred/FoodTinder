@@ -4,6 +4,7 @@ import {addToMatches, removeAllItems, printAllKeys, getAllMatches} from '../../d
 
 const ButtonGroup = ({ onPress, business }) => {
   const {
+    textStyle,
     buttonStyle,
     constainerStyle,
     imageStyle
@@ -18,7 +19,7 @@ const ButtonGroup = ({ onPress, business }) => {
         <Image style={imageStyle} source={require("../../Assets/rubbyDucky.png")} />
       </TouchableOpacity>
       <View style={{ flex: 0.05 }} />
-      <TouchableOpacity onPress={ () => { addToMatches(business) } } style={buttonStyle}>
+      <TouchableOpacity onPress={onPress} style={buttonStyle}>
         <Image style={imageStyle} source={require("../../Assets/greenCheck.png")} />
       </TouchableOpacity>
     </View>
@@ -26,22 +27,32 @@ const ButtonGroup = ({ onPress, business }) => {
 };
 
 const styles = {
+  textStyle: {
+    alignSelf: 'center',
+    color: '#007aff',
+    fontSize: 16,
+    fontWeight: '600',
+    padding: 3
+  },
   buttonStyle: {
     flex: 0.30, // expand to fit as much content as you can
-    backgroundColor: '#FFF',
-    borderRadius: 10,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#007aff'
   },
   constainerStyle: {
     padding: 5,
     alignItems: 'stretch',
+    // backgroundColor: '#fff',
     alignSelf: 'center',
     flexDirection: 'row',
     position: 'relative',
     flexWrap: 'wrap',
   },
   imageStyle: {
-    width: 30,
-    height: 20,
+    width: 50,
+    height: 50,
     alignSelf: 'center'
   }
 };
