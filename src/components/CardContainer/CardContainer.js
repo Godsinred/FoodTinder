@@ -48,8 +48,9 @@ const styles = StyleSheet.create({
         flex: 2,
     },
     infoBar: {
-        flex: 0.5,
+        flex: 1,
+        bottom: 3,
     }, scrollView: {
-        flex: 5,
+        flex: 3,
     }
 });

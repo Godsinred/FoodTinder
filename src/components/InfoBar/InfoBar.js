@@ -38,7 +38,7 @@ export default class InfoBar extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.3,
+    flex: 2,
     flexDirection: 'row',
     top: 0,
     bottom: 0
@@ -53,11 +53,11 @@ const styles = StyleSheet.create({
     padding: 1,
   },
   firstRowContainer: {
-    flex: 1,
+    flex: 3,
     justifyContent: 'center',
   },
   secondRowContainer: {
-    flex: 0.5,
+    flex: 1,
     justifyContent: 'center',
   },
   nameContainer: {
@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
     padding: 3,
   },
   detailContainer: {
-    alignItems: 'flex-end',
     textAlign: 'right',
     padding: 3,
     fontSize: 15,
