@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text, View, Image, Linking, Button, TouchableOpacity, StyleSheet } from 'react-native';
-import CardSection from '../MainContainer/CardSection';
 
 const ButtonGroup = ({ onPress, children }) => {
   const {

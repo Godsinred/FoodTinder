@@ -3,11 +3,10 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button, FlatList, List, ListItem } from 'react-native';
 import PropTypes from 'prop-types';
 import Swiper from 'react-native-deck-swiper'
-
+import CardContainer from '../CardContainer/CardContainer';
 import { searchByLocation, getBusinessDetails, getReview, businessesFromJSON } from '../../YelpApi/YelpApiFunctions';
 import ButtonGroup from './ButtonGroup';
 import ScrollView from './ScrollView';
-import CardContainer from '../CardContainer/CardContainer';
 
 export default class MatchViewContainer extends Component {
 
@@ -43,16 +42,8 @@ export default class MatchViewContainer extends Component {
     renderCard = (business, index) => {
         return (
             <View style={styles.card}>
-<<<<<<< HEAD
                 <Text style={styles.text}>{business.name}</Text>
                 <CardContainer business={business}></CardContainer>
-=======
-                <ScrollView
-                style={{'flex': 1}}
-                businessId={business.id}
-                >
-                </ScrollView>
->>>>>>> 8bd27c808fe8a1785a51c60512f35be31e614841
             </View>
         )
     }
@@ -67,7 +58,7 @@ export default class MatchViewContainer extends Component {
         return (
             <View style={styles.container}>
                 <Swiper
-                    marginTop={-50}
+                    marginTop={0}
                     style={styles.container}
                     cards={this.state.businesses}
                     renderCard={(card, index) => {
@@ -79,7 +70,7 @@ export default class MatchViewContainer extends Component {
                     backgroundColor={'#4FD0E9'}
                     stackSize={3}
                     verticalSwipe={false}
-                    
+
                 >
                     <Button
                         onPress={() => { console.log('oulala') }}

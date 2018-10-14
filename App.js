@@ -1,8 +1,9 @@
 import React from 'react';
 import YelpApi from './src/YelpApi/YelpApiClass.js'
 import { StyleSheet, Text, View, Button } from 'react-native';
-
+import { createStackNavigator } from 'react-navigation';
 import MainContainer from './src/components/MainContainer/MainContainer';
+import AppNavigator from './src/components/AppNavigator';
 
 export default class App extends React.Component {
 
@@ -13,7 +14,7 @@ export default class App extends React.Component {
         flexDirection: 'column',
         justifyContent: 'space-between',
       }}>
-        <MainContainer></MainContainer>
+        <AppNavigator />
       </View>
     );
   }
