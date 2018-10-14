@@ -77,9 +77,6 @@ const styles = StyleSheet.create({
     flex: -1,
     flexDirection: 'column',
     alignItems: 'stretch',
-<<<<<<< HEAD
-    backgroundColor: 'powderblue',
-=======
     backgroundColor: 'powderblue'
   },
   name:
@@ -91,7 +88,6 @@ const styles = StyleSheet.create({
   rating: {
     textAlign: 'right',
     right: 3
->>>>>>> 74359a4e2add38d3cae58c1e765f282b8d321dda
   }
 
 });

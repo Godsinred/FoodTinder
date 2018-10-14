@@ -56,7 +56,7 @@ export default class MatchViewContainer extends Component {
         console.log(`Right Swiped on ${this.state.businesses[this.state.cardIndex].name}`)
         addToMatches(this.state.businesses[this.state.cardIndex])
         printAllKeys();
-        getAllMatches()
+
     }
 
     render() {

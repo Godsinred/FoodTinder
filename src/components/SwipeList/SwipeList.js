@@ -6,13 +6,23 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   View,
+  Linking
 } from 'react-native';
 
 import { SwipeListView, SwipeRow } from 'react-native-swipe-list-view';
+import {NavigationEvents} from 'react-navigation';
+
+import {addToMatches, removeAllItems, printAllKeys, getAllMatches} from '../../db/DbWrapperFunctions';
+import InfoBar from '../InfoBar/InfoBar';
 
 import 'prop-types';
 
 class SwipeList extends Component {
+
+  static navigationOptions = {
+    title: 'Swipe List',
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -24,24 +34,46 @@ class SwipeList extends Component {
 
   render() {
     return (
+      <View>
+      <NavigationEvents
+        onDidFocus={payload =>{
+          console.log('helloooooo');
+          getAllMatches().then(matches =>{
+            console.log(matches);
+            this.setState({
+              data: matches.map(match =>{
+                return JSON.parse(match[1]);
+              })
+            })
+          })
+        }}
+      />
+
       <SwipeListView
         useFlatList={true}
         data={this.state.data}
-        stopLeftSwipe={true}
+        stopLeftSwipe={1}
         renderItem={(rowData, rowMap) => (
           <View style = {styles.rowFront}>
-            <Text>I am {rowData.item.text} in a SwipeListView</Text>
+            <InfoBar
+              name={rowData.item.name}
+              city={'San Diego'}
+              distance={Number(rowData.item.distance/1609.34).toFixed(1)}
+              rating={rowData.item.rating}
+              price={rowData.item.price}
+            />
           </View>
         )}
         renderHiddenItem={(rowData, rowMap) => (
           <View style = {styles.yelp}>
               <Text/>
-              <TouchableOpacity>
-                onPress={_ => rowMap[rowData.item.key].closeRow()}
+              <TouchableOpacity
+                onPress={() => {Linking.openURL(rowData.item.url)}}>
                   <Text style = {styles.yelpText}> YELP </Text>
               </TouchableOpacity>
           </View>
         )}
+
         rightOpenValue={-75}
         leftOpenValue={75}
         onRowOpen={(rowKey, rowMap) => {
@@ -51,6 +83,7 @@ class SwipeList extends Component {
         }}
         previewRowKey={this.state.data[0].key}
       />
+      </View>
     );
   }
 }
@@ -62,41 +95,24 @@ const styles = StyleSheet.create({
     borderBottomColor: 'black',
     borderBottomWidth: 1,
     justifyContent: 'center',
-    height: 50,
-  },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    flexDirection: 'row',
+    height: 200,
+    padding: 0
   },
   yelp: {
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderColor: 'green',
+    backgroundColor: 'red',
     flex: 1,
     flexDirection: 'row',
     paddingRight: 20
   },
   yelpText: {
-   textAlign: 'center' 
+   textAlign: 'center',
+   justifyContent: 'space-between',
+   fontWeight: 'bold',
+   fontSize: 16,
+   paddingLeft: 15
   },
-  rowBack1: {
-    fontWeight: 'bold',
-    alignItems: 'center',
-    backgroundColor: 'red',
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  rowBack2: {
-    fontWeight: 'bold',
-    alignItems: 'center',
-    backgroundColor: 'green',
-    flex: 1.5,
-    flexDirection: 'row',
-    justifyContent: 'center',
-  }
-  
 });
 export default SwipeList;

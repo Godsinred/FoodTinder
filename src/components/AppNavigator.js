@@ -1,10 +1,10 @@
 import { createStackNavigator } from 'react-navigation';
 import MainContainer from './MainContainer/MainContainer';
-import MatchList from './MatchList';
+import SwipeList from './SwipeList/SwipeList'
 
 const AppNavigator = createStackNavigator({
   MainContainer: { screen: MainContainer },
-  MatchList: { screen: MatchList },
+  SwipeList: { screen: SwipeList },
 });
 
 export default AppNavigator;

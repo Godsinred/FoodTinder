@@ -18,16 +18,10 @@ export default class InfoBar extends React.Component {
         <View style={styles.p20Container}>
           <View style={styles.firstRowContainer}>
             <Text style={styles.detailContainer}>{this.props.rating}</Text>
-<<<<<<< HEAD
-        </View>
-        <View style={styles.smallContainer}>
-            <Text style={styles.detailContainer}>{this.props.price}</Text>
-=======
           </View>
           <View style={styles.secondRowContainer}>
             <Text style={styles.detailContainer}>{this.props.price}</Text>
           </View>
->>>>>>> 74359a4e2add38d3cae58c1e765f282b8d321dda
         </View>
       </View>
     );
@@ -36,24 +30,12 @@ export default class InfoBar extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.3, 
+    flex: 0.3,
     flexDirection: 'row',
     top: 0,
     bottom: 0
   },
   p80Container: {
-<<<<<<< HEAD
-    flex: 0.8,
-    height: 100,
-    backgroundColor: 'powderblue',
-    flexDirection: 'column'
-  },
-  p20Container: {
-    flex: 0.2,
-    height: 100,
-    backgroundColor: 'skyblue',
-    flexDirection: 'column'
-=======
     flex: 0.9,
     flexDirection: 'column',
   },
@@ -61,7 +43,6 @@ const styles = StyleSheet.create({
     flex: 0.1,
     flexDirection: 'column',
     padding: 1,
->>>>>>> 74359a4e2add38d3cae58c1e765f282b8d321dda
   },
   firstRowContainer: {
     flex: 1,

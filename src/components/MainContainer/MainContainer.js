@@ -26,7 +26,7 @@ export default class MainContainer extends Component {
       headerTitle: 'Food Tinder',
       headerRight: (
         <Button
-          onPress={ () => navigation.navigate('MatchList') }
+          onPress={ () => navigation.navigate('SwipeList') }
           title="Matches"
           style={styles.textStyle}
         />
