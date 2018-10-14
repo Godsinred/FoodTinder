@@ -29,11 +29,7 @@ function searchByLocation(location){
     let options = {
         latitude: location.latitude,
         longitude: location.longitude,
-<<<<<<< HEAD
         limit: 3
-=======
-        limit: 5
->>>>>>> b8b4f52331e77a08a08910dbf4fc6651f1180d85
     };
 
     return axios.get(businessSearch, {

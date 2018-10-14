@@ -9,7 +9,7 @@ export default class MatchList extends Component {
      // Start counting when the page is loaded
      this.timeoutHandle = setTimeout(()=>{
           // Add your logic for the transition
-          this.props.navigation.navigate('MainContainer')
+          this.props.navigation.navigate('LoginPage')
      }, 3000);
    }
 
