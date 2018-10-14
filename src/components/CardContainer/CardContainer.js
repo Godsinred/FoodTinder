@@ -37,17 +37,13 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         padding: 5,
         alignSelf: 'stretch'
-<<<<<<< HEAD
     },
     pictureContainer :{
         flex: 2, 
     },
     infoBar :{
-        flex: 1, 
+        flex: 0.5, 
     }, scrollView :{
-        flex: 4, 
+        flex: 5, 
     }  
-=======
-    }
->>>>>>> 65058ea4f9547ac6b219c0bb970b7a0f83879861
 });
