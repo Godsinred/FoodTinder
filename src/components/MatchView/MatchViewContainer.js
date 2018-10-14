@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button, FlatList, List, ListItem } from 'react-native';
 import PropTypes from 'prop-types';
 import Swiper from 'react-native-deck-swiper'
-
 import { searchByLocation, getBusinessDetails, getReview, businessesFromJSON } from '../../YelpApi/YelpApiFunctions';
 import ButtonGroup from './ButtonGroup';
+import ScrollView from './ScrollView';
 import CardContainer from '../CardContainer/CardContainer';
 import {addToMatches, removeAllItems, printAllKeys, getAllMatches} from '../../db/DbWrapperFunctions';
 
@@ -62,6 +62,27 @@ export default class MatchViewContainer extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Swiper
+                    marginTop={0}
+                    style={styles.container}
+                    cards={this.state.businesses}
+                    renderCard={(card, index) => {
+                        return this.renderCard(card, index);
+                    }}
+                    onSwiped={(cardIndex) => { console.log(cardIndex) }}
+                    onSwipedAll={() => { console.log('onSwipedAll') }}
+                    cardIndex={0}
+                    backgroundColor={'#4FD0E9'}
+                    stackSize={3}
+                    verticalSwipe={false}
+
+                >
+                    <Button
+                        onPress={() => { console.log('oulala') }}
+                        title="Press me">
+                        You can press me
+                    </Button>
+                </Swiper>
                 <View style={styles.container}>
                     <Swiper
                         cardVerticalMargin={10}

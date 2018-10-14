@@ -8,7 +8,7 @@ export default class ScrollView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviews: []
+      reviews: [],
     };
   }
 
@@ -21,7 +21,7 @@ export default class ScrollView extends Component {
     })
   }
 
-  componentWillMount(){
+  componentWillMount() {
     getReview(this.props.businessId).then(response => {
       this.setState({
         reviews: response
@@ -36,7 +36,7 @@ export default class ScrollView extends Component {
           reviews: response
         })
       })
-  }
+    }
   }
 
   render() {
@@ -44,20 +44,54 @@ export default class ScrollView extends Component {
       <View style={styles.scrollView}>
         <FlatList
           data={this.state.reviews}
-          renderItem={({ item }) => <Text>{`${item.user.name} ${item.text}`}</Text>}
+          renderItem={({ item }) =>
+            <View>
+              <View style={styles.userInfoContainer}>
+                <Text
+                  style={styles.name}>
+                  {item.user.name}
+                </Text>
+                <Text
+                  style={styles.rating}>
+                  {item.rating}
+                </Text>
+              </View>
+              <Text style={{left:3}}>{item.text}{'\n'}</Text>
+            </View>
+          }
           keyExtractor={(item, index) => item.id}
         // extraData={this.state}
         />
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
+  userInfoContainer: {
+    flex: 0.3,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   scrollView: {
     flex: -1,
     flexDirection: 'column',
     alignItems: 'stretch',
+<<<<<<< HEAD
     backgroundColor: 'powderblue',
+=======
+    backgroundColor: 'powderblue'
+  },
+  name:
+  {
+    fontSize: 14,
+    fontWeight: 'bold',
+    left: 3
+  },
+  rating: {
+    textAlign: 'right',
+    right: 3
+>>>>>>> 74359a4e2add38d3cae58c1e765f282b8d321dda
   }
-  });
+
+});
