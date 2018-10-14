@@ -10,6 +10,7 @@ import MatchViewContainer from '../MatchView/MatchViewContainer.js';
 export default class MainContainer extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             location: {
                 "latitude": null,
@@ -46,7 +47,6 @@ export default class MainContainer extends Component {
     };
 
     _getLocationAsync = async () => {
-        console.log('get location')
         let { status } = await Permissions.askAsync(Permissions.LOCATION);
         if (status !== 'granted') {
             this.setState({
@@ -62,8 +62,6 @@ export default class MainContainer extends Component {
                 "longitude": thisLocation.coords.longitude
             }
         });
-        console.log('Got location: ')
-        console.log(this.state);
     };
 
     render() {

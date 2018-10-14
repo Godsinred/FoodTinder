@@ -3,9 +3,17 @@ import YelpApi from './src/YelpApi/YelpApiClass.js'
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import MainContainer from './src/components/MainContainer/MainContainer';
+<<<<<<< HEAD
 import AppNavigator from './src/components/AppNavigator';
+=======
+import {addToMatches, removeAllItems} from './src/db/DbWrapperFunctions';
+>>>>>>> fc94612fe053a44206d7324eda3d0eacbb046e2d
 
 export default class App extends React.Component {
+
+  componentWillMount(){
+    removeAllItems()
+  }
 
   render() {
     return (
