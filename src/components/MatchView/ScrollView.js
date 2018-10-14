@@ -46,11 +46,17 @@ export default class ScrollView extends Component {
           data={this.state.reviews}
           renderItem={({ item }) =>
             <View>
-              <Text
-                style={styles.name}>
-                {item.user.name}
-              </Text>
-              <Text>{item.text}{'\n'}</Text>
+              <View style={styles.userInfoContainer}>
+                <Text
+                  style={styles.name}>
+                  {item.user.name}
+                </Text>
+                <Text
+                  style={styles.rating}>
+                  {item.rating}
+                </Text>
+              </View>
+              <Text style={{left:3}}>{item.text}{'\n'}</Text>
             </View>
           }
           keyExtractor={(item, index) => item.id}
@@ -62,6 +68,11 @@ export default class ScrollView extends Component {
 }
 
 const styles = StyleSheet.create({
+  userInfoContainer: {
+    flex: 0.3,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   scrollView: {
     flex: 1,
     alignItems: 'stretch',
@@ -70,7 +81,12 @@ const styles = StyleSheet.create({
   name:
   {
     fontSize: 14,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    left: 3
+  },
+  rating: {
+    textAlign: 'right',
+    right: 3
   }
 
 });

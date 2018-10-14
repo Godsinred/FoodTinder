@@ -30,40 +30,43 @@ export default class InfoBar extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.2, 
+    flex: 0.3, 
     flexDirection: 'row',
+    top: 0,
+    bottom: 0
   },
   p80Container: {
-    flex: 0.8,
-    flexDirection: 'column'
+    flex: 0.9,
+    flexDirection: 'column',
   },
   p20Container: {
-    flex: 0.2,
-    flexDirection: 'column'
+    flex: 0.1,
+    flexDirection: 'column',
+    padding: 1,
   },
   firstRowContainer: {
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'green',
-  },
-  secondRowContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'green'
+  },
+  secondRowContainer: {
+    flex: 0.5,
+    justifyContent: 'center',
   },
   nameContainer: {
+    flexWrap: 'wrap',
     fontSize: 18,
     fontWeight: 'bold',
-    padding: 2
+    textAlign: 'left',
+    padding: 3,
   },
   locationContainer: {
-    fontSize: 18,
+    fontSize: 15,
+    textAlign: 'left',
+    padding: 3,
   },
   detailContainer: {
-    fontSize: 14,
+    textAlign: 'right',
+    padding: 3,
+    fontSize: 15,
   },
 });

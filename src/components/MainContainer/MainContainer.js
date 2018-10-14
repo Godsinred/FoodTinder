@@ -1,10 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 // import NavBar from './navbar';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import { Constants, Location, Permissions } from 'expo';
 
-import Navbar from './Navbar';
+import CardContainer from '../CardContainer/CardContainer';
 import MatchViewContainer from '../MatchView/MatchViewContainer.js';
+
 
 export default class MainContainer extends Component {
     constructor(props) {
@@ -15,11 +16,17 @@ export default class MainContainer extends Component {
                 "latitude": null,
                 "longitude": null
             },
-
+            textValue: "Matches",
+            matchBool: true,
         }
     }
 
+<<<<<<< HEAD
     static navigationOptions = ({ navigation }) => {
+=======
+
+  static navigationOptions = ({ navigation }) => {
+>>>>>>> eca7a3a888ae6ace9c42979fc7d992db1d2ceb28
     return {
       headerTitle: 'Food Tinder',
       headerRight: (
@@ -62,6 +69,7 @@ export default class MainContainer extends Component {
     };
 
     render() {
+<<<<<<< HEAD
         return (
             <View style={{flex: 1}}>
                 <MatchViewContainer
@@ -71,20 +79,42 @@ export default class MainContainer extends Component {
             </View>
 
         );
+=======
+      return (
+        <View>
+          <MatchViewContainer
+          latitude={this.state.location.latitude}
+          longitude={this.state.location.longitude}
+          ></MatchViewContainer>
+        </View>
+      );
+>>>>>>> eca7a3a888ae6ace9c42979fc7d992db1d2ceb28
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: Constants.statusBarHeight,
-        backgroundColor: '#ecf0f1',
+    constainerStyle: {
+      borderBottomWidth: 1,
+      marginTop: 0,
+      padding: 5,
+      backgroundColor: '#fff',
+      justifyContent: 'flex-end',
+      position: 'relative',
+      flexDirection: 'row',
+      borderColor: '#ddd',
     },
-    paragraph: {
-        margin: 24,
-        fontSize: 18,
-        textAlign: 'center',
+    buttonStyle: {
+      flex: 0.25, // expand to fit as much content as you can
+      backgroundColor: '#fff',
+      borderRadius: 5,
+      borderWidth: 1,
+      borderColor: '#007aff'
+    },
+    textStyle: {
+      alignSelf: 'center',
+      color: '#007aff',
+      fontSize: 16,
+      fontWeight: '600',
+      padding: 3
     },
 });
