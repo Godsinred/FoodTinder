@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 import MainContainer from './src/components/MainContainer/MainContainer';
 import {addToMatches, removeAllItems} from './src/db/DbWrapperFunctions';
+import AppNavigator from './src/components/AppNavigator';
 
 export default class App extends React.Component {
 
@@ -18,7 +19,7 @@ export default class App extends React.Component {
         flexDirection: 'column',
         justifyContent: 'space-between',
       }}>
-        <MainContainer></MainContainer>
+        <AppNavigator />
       </View>
     );
   }

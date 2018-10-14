@@ -19,6 +19,19 @@ export default class MainContainer extends Component {
         }
     }
 
+    static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: 'Food Tinder',
+      headerRight: (
+        <Button
+          onPress={ () => navigation.navigate('MatchList') }
+          title="Matches"
+          style={styles.textStyle}
+        />
+      ),
+    };
+  };
+
     componentWillMount() {
         if (Platform.OS === 'android' && !Constants.isDevice) {
             this.setState({
@@ -51,7 +64,6 @@ export default class MainContainer extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
-                <Navbar></Navbar>
                 <MatchViewContainer
                 latitude={this.state.location.latitude}
                 longitude={this.state.location.longitude}

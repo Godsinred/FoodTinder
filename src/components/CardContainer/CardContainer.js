@@ -12,10 +12,10 @@ export default class CardContainer extends React.Component {
         let pic = {uri : this.props.business.image_url};
         return (
             <View style={styles.container}>
-                <PictureContainer 
-                    style={styles.pictureContainer}    
+                <PictureContainer
+                    style={styles.pictureContainer}
                     source={pic} />
-                <InfoBar 
+                <InfoBar
                     style={styles.infoBar}
                     name={this.props.business.name}
                     city={this.props.business.location.city}
@@ -37,17 +37,5 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         padding: 5,
         alignSelf: 'stretch'
-<<<<<<< HEAD
-    },
-    pictureContainer :{
-        flex: 2, 
-    },
-    infoBar :{
-        flex: 1, 
-    }, scrollView :{
-        flex: 4, 
-    }  
-=======
     }
->>>>>>> 65058ea4f9547ac6b219c0bb970b7a0f83879861
 });
