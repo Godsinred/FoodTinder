@@ -21,12 +21,7 @@ export default class MainContainer extends Component {
         }
     }
 
-<<<<<<< HEAD
     static navigationOptions = ({ navigation }) => {
-=======
-
-  static navigationOptions = ({ navigation }) => {
->>>>>>> eca7a3a888ae6ace9c42979fc7d992db1d2ceb28
     return {
       headerTitle: 'Food Tinder',
       headerRight: (
@@ -69,7 +64,6 @@ export default class MainContainer extends Component {
     };
 
     render() {
-<<<<<<< HEAD
         return (
             <View style={{flex: 1}}>
                 <MatchViewContainer
@@ -79,16 +73,6 @@ export default class MainContainer extends Component {
             </View>
 
         );
-=======
-      return (
-        <View>
-          <MatchViewContainer
-          latitude={this.state.location.latitude}
-          longitude={this.state.location.longitude}
-          ></MatchViewContainer>
-        </View>
-      );
->>>>>>> eca7a3a888ae6ace9c42979fc7d992db1d2ceb28
     }
 }
 

@@ -37,9 +37,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         padding: 5,
         alignSelf: 'stretch'
-<<<<<<< HEAD
-    }
-=======
     },
     pictureContainer :{
         flex: 2, 
@@ -49,5 +46,4 @@ const styles = StyleSheet.create({
     }, scrollView :{
         flex: 5, 
     }  
->>>>>>> eca7a3a888ae6ace9c42979fc7d992db1d2ceb28
 });
