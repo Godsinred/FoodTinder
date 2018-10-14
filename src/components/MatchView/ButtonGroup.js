@@ -3,7 +3,6 @@ import { Text, View, Image, Linking, Button, TouchableOpacity, StyleSheet } from
 
 const ButtonGroup = ({ onPress, children }) => {
   const {
-    textStyle,
     buttonStyle,
     constainerStyle,
     imageStyle
@@ -26,32 +25,22 @@ const ButtonGroup = ({ onPress, children }) => {
 };
 
 const styles = {
-  textStyle: {
-    alignSelf: 'center',
-    color: '#007aff',
-    fontSize: 16,
-    fontWeight: '600',
-    padding: 3
-  },
   buttonStyle: {
     flex: 0.30, // expand to fit as much content as you can
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#007aff'
+    backgroundColor: '#FFF',
+    borderRadius: 10,
   },
   constainerStyle: {
     padding: 5,
     alignItems: 'stretch',
-    // backgroundColor: '#fff',
     alignSelf: 'center',
     flexDirection: 'row',
     position: 'relative',
     flexWrap: 'wrap',
   },
   imageStyle: {
-    width: 50,
-    height: 50,
+    width: 30,
+    height: 20,
     alignSelf: 'center'
   }
 };

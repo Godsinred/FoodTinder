@@ -18,7 +18,6 @@ export default class InfoBar extends React.Component {
 }
   const styles = StyleSheet.create({
   container: {
-    backgroundColor:'black',
     padding: 10,
     alignSelf: 'stretch'
   },

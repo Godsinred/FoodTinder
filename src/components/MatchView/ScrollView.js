@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     alignItems: 'stretch',
-    backgroundColor: 'powderblue'
+    //backgroundColor: 'powderblue'
   },
   name:
   {

@@ -23,7 +23,7 @@ export default class MainContainer extends Component {
 
     static navigationOptions = ({ navigation }) => {
     return {
-      headerTitle: 'Food Tinder',
+      headerTitle: <Text style={styles.headerTitle}>Food Tinder</Text>,
       headerRight: (
         <Button
           onPress={ () => navigation.navigate('MatchList') }
@@ -62,7 +62,6 @@ export default class MainContainer extends Component {
             }
         });
     };
-
     render() {
         return (
             <View style={{flex: 1}}>
@@ -77,11 +76,22 @@ export default class MainContainer extends Component {
 }
 
 const styles = StyleSheet.create({
+    headerTitle: {
+        fontSize: 30,
+        color: '#ffd700',
+        // textDecorationStyle: 'solid',
+        // textDecorationColor: '#B22222',
+        textShadowOffset:{width: 2, height: 2},
+        textShadowRadius:1,
+        textShadowColor: '#B22222',
+        fontWeight: '700',
+    },
     constainerStyle: {
       borderBottomWidth: 1,
       marginTop: 0,
       padding: 5,
-      backgroundColor: '#fff',
+      //backgroundColor: '#fff',
+      backgroundColor: '#fff8dc',
       justifyContent: 'flex-end',
       position: 'relative',
       flexDirection: 'row',
@@ -98,7 +108,7 @@ const styles = StyleSheet.create({
       alignSelf: 'center',
       color: '#007aff',
       fontSize: 16,
-      fontWeight: '600',
-      padding: 3
+      fontWeight: '900',
+      padding: 2
     },
 });
