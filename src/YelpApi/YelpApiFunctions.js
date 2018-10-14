@@ -56,7 +56,8 @@ function businessesFromJSON(location){
 
 function getReview(businessId){
     return axios.get(businessDetails + businessId + '/reviews', {
-        headers: auth
+        headers: auth,
+        limit: 3
     }).then((response) =>{
         return response.data.reviews;
     }).catch( err =>{

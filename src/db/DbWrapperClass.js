@@ -1,7 +1,7 @@
 import {AsyncStroage} from 'react-native';
 
 module.exports = class DbWrapper{
-    
+
     async getAllMatches(){
         try{
             return await AsyncStroage.getAllKeys().then(keys =>{

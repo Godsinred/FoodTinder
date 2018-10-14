@@ -33,7 +33,6 @@ async function getAllMatches(){
             return AsyncStorage.multiGet(keys, (err, keys) =>{
                 let mapping = keys.map(pair =>{
                     console.log('Mapping: ')
-                    console.log(JSON.parse(pair[1]))
                     return JSON.parse(pair[1])
                 })
                 return mapping;

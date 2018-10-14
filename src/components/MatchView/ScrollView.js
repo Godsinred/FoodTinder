@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import NavBar from './navbar';
-import { Platform, StyleSheet, Text, View, Button, FlatList, List, ListItem } from 'react-native';
+import { StyleSheet, Text, View, FlatList, List, ListItem } from 'react-native';
 import PropTypes from 'prop-types';
 import { getReview } from '../../YelpApi/YelpApiFunctions';
 
@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   scrollView: {
-    flex: 1,
+    flex: -1,
+    flexDirection: 'column',
     alignItems: 'stretch',
     //backgroundColor: 'powderblue'
   },

@@ -8,7 +8,7 @@ module.exports = class YelpApi{
     constructor(){
         this.businessSearch = 'https://api.yelp.com/v3/businesses/search';
         this.businessDetails = 'https://api.yelp.com/v3/businesses/';
-        this.apiKey = 'a_IHoeZF1KZ_fhIsvoJW4-JF-r1TZnDY--wKtRLCiBQMqHcEqGpI2OLoTHfzKPZvl3iVQwm-IEjqwD7xofN_pRDTwMSIicYfZiy0WcNNlxpqvBoEfZjtIgT_p8_gWnYx'
+        this.apiKey = 'ljxk8Nt7OSlg7fcOwS7qNUXqzw4x-vyR_Llo4VTLJz1XsBJJA42vemfYiJgVWH0jC6uiM4ptqsFlCvb1iZ-ATT7NHbTqHozCJVBYEhOkbcp8cum5E5a7R5gIlzjCW3Yx';
             //cause who cares about security amirite
         this.auth = {
             'Authorization': 'Bearer '+ this.apiKey
@@ -31,7 +31,7 @@ module.exports = class YelpApi{
             latitude: location.latitude,
             longitude: location.longitude,
         };
-        
+
         return axios.get(this.businessSearch,{
                 params: options,
                 headers: this.auth

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, View, Image, Linking, Button, TouchableOpacity, StyleSheet } from 'react-native';
+import {addToMatches, removeAllItems, printAllKeys, getAllMatches} from '../../db/DbWrapperFunctions';
 
-const ButtonGroup = ({ onPress, children }) => {
+const ButtonGroup = ({ onPress, business }) => {
   const {
     buttonStyle,
     constainerStyle,
@@ -17,7 +18,7 @@ const ButtonGroup = ({ onPress, children }) => {
         <Image style={imageStyle} source={require("../../Assets/rubbyDucky.png")} />
       </TouchableOpacity>
       <View style={{ flex: 0.05 }} />
-      <TouchableOpacity onPress={onPress} style={buttonStyle}>
+      <TouchableOpacity onPress={ () => { addToMatches(business) } } style={buttonStyle}>
         <Image style={imageStyle} source={require("../../Assets/greenCheck.png")} />
       </TouchableOpacity>
     </View>

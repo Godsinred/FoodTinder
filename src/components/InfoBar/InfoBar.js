@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     padding: 3,
   },
   detailContainer: {
-    alignItems: 'right',
+    alignItems: 'flex-end',
     textAlign: 'right',
     padding: 3,
     fontSize: 15,
