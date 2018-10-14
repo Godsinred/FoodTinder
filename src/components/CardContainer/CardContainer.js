@@ -9,7 +9,7 @@ import ScrollView from '../MatchView/ScrollView';
 
 export default class CardContainer extends React.Component {
     render() {
-        let pic = {uri : this.props.business.image_url};
+        let pic = { uri: this.props.business.image_url };
         return (
             <View style={styles.container}>
                 <PictureContainer
@@ -19,13 +19,19 @@ export default class CardContainer extends React.Component {
                     style={styles.infoBar}
                     name={this.props.business.name}
                     city={this.props.business.location.city}
-                    distance={Number(this.props.business.distance/1609.34).toFixed(1)}
+                    distance={Number(this.props.business.distance / 1609.34).toFixed(1)}
                     rating={this.props.business.rating}
                     price={this.props.business.price}
                 />
+                <View
+                    style={{
+                        borderBottomColor: '#B0C4DE',
+                        borderBottomWidth: 1.5,
+                    }}
+                />
                 <ScrollView
                     style={styles.scrollView}
-                    businessId={this.props.business.id}/>
+                    businessId={this.props.business.id} />
             </View>
         );
     }
@@ -38,12 +44,13 @@ const styles = StyleSheet.create({
         padding: 5,
         alignSelf: 'stretch'
     },
-    pictureContainer :{
-        flex: 2, 
+    pictureContainer: {
+        flex: 2,
     },
-    infoBar :{
-        flex: 0.5, 
-    }, scrollView :{
-        flex: 5, 
-    }  
+    infoBar: {
+        flex: 1,
+        bottom: 3,
+    }, scrollView: {
+        flex: 3,
+    }
 });

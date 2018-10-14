@@ -62,31 +62,11 @@ export default class MatchViewContainer extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Swiper
-                    marginTop={0}
-                    style={styles.container}
-                    cards={this.state.businesses}
-                    renderCard={(card, index) => {
-                        return this.renderCard(card, index);
-                    }}
-                    onSwiped={(cardIndex) => { console.log(cardIndex) }}
-                    onSwipedAll={() => { console.log('onSwipedAll') }}
-                    cardIndex={0}
-                    backgroundColor={'#4FD0E9'}
-                    stackSize={3}
-                    verticalSwipe={false}
-
-                >
-                    <Button
-                        onPress={() => { console.log('oulala') }}
-                        title="Press me">
-                        You can press me
-                    </Button>
-                </Swiper>
                 <View style={styles.container}>
                     <Swiper
-                        cardVerticalMargin={10}
-                        cardHorizontalMargin={5}
+                        overlayOpacityVerticalThreshold={20}
+                        cardVerticalMargin={15}
+                        cardHorizontalMargin={15}
                         infinite={true}
                         style={styles.container}
                         cards={this.state.businesses}
@@ -102,7 +82,7 @@ export default class MatchViewContainer extends Component {
                         onSwipedRight={this.rightSwipe}
                         onSwipedAll={() => { console.log('onSwipedAll') }}
                         cardIndex={0}
-                        backgroundColor={'#4FD0E9'}
+                        backgroundColor={'#DCDCDC'}
                         stackSize={3}
                     >
                     </Swiper>
@@ -121,13 +101,11 @@ export default class MatchViewContainer extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F5FCFF'
+        backgroundColor: '#fff',
     },
     card: {
         flex: .85,
-        borderRadius: 4,
-        borderWidth: 2,
-        borderColor: '#E8E8E8',
+        borderRadius: 15,
         justifyContent: 'center',
         backgroundColor: 'white',
         alignContent: 'stretch'
