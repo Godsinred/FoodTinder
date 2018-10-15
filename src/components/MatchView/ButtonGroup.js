@@ -35,7 +35,7 @@ const styles = {
     padding: 3
   },
   buttonStyle: {
-    flex: 0.30, // expand to fit as much content as you can
+    flex: 0.25, // expand to fit as much content as you can
     backgroundColor: '#fff',
     borderRadius: 5,
     borderWidth: 1,
@@ -43,6 +43,7 @@ const styles = {
   },
   constainerStyle: {
     padding: 5,
+    paddingBottom: 20,
     alignItems: 'stretch',
     // backgroundColor: '#fff',
     alignSelf: 'center',
@@ -51,8 +52,8 @@ const styles = {
     flexWrap: 'wrap',
   },
   imageStyle: {
-    width: 50,
-    height: 50,
+    width: 30,
+    height: 30,
     alignSelf: 'center'
   }
 };

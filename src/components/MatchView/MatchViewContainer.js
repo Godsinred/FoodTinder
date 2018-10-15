@@ -30,6 +30,9 @@ export default class MatchViewContainer extends Component {
         if (this.props.latitude !== oldProps.latitude && this.props.longitude !== oldProps.longitude) {
             searchByLocation(this.props).then(results => {
                 console.log(typeof (results))
+                console.log('===================')
+                console.log(results)
+                console.log('==================')
                 this.setState({
                     businesses: results
                 })
@@ -105,10 +108,13 @@ const styles = StyleSheet.create({
     },
     card: {
         flex: .85,
-        borderRadius: 15,
+        borderRadius: 20,
         justifyContent: 'center',
         backgroundColor: 'white',
-        alignContent: 'stretch'
+        alignContent: 'stretch',
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: '#808080'
     },
     text: {
         textAlign: 'center',

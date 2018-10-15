@@ -30,12 +30,6 @@ export default class LoginPage extends Component {
     });
   }
 
-  componentDidUpdate(oldProps) {
-    if (this.props.firebase !== oldProps.firebase) {
-      console.console.log('yay!');
-    }
-  }
-
   renderContent() {
     switch (this.state.loggedIn) {
       case true:

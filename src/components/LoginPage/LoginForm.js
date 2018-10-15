@@ -4,7 +4,12 @@ import firebase from 'firebase';
 import { Button, Card, CardSection, Input, Spinner } from './common';
 
 class LoginForm extends Component {
-  state = { email: '', password: '', error: '', loading: false };
+  state = { email: '', password: '', error: '',
+  loading: false, signUploading: false, signUpMsg: '' };
+
+  signUserOut() {
+    firebase.auth().signOut();
+  }
 
   onButtonPress() {
     const { email, password } = this.state;
@@ -13,15 +18,16 @@ class LoginForm extends Component {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(this.onLoginSuccess.bind(this))
-      .catch(() => {
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-          .then(this.onLoginSuccess.bind(this))
-          .catch(this.onLoginFail.bind(this));
-      });
+        .catch(this.onLoginFail.bind(this));
   }
 
-  onLoginFail() {
-    this.setState({ error: 'Authentication Failed', loading: false });
+  onSignUpButtonPress() {
+    const { email, password } = this.state;
+
+    this.setState({ signUpError: '', signUpMsg: '', signUploading: true });
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(this.onSignUpSuccess.bind(this))
+      .catch(this.onSignUpFail.bind(this));
   }
 
   onLoginSuccess() {
@@ -33,6 +39,18 @@ class LoginForm extends Component {
     });
   }
 
+  onLoginFail() {
+    this.setState({ error: 'Authentication Failed', loading: false });
+  }
+
+  onSignUpSuccess() {
+      this.setState({ signUpMsg: 'Account Created!', signUploading: false });
+  }
+
+  onSignUpFail() {
+    this.setState({ error: 'Account Creation Failed', signUploading: false });
+  }
+
   renderButton() {
     if (this.state.loading) {
       return <Spinner size="small" />;
@@ -40,7 +58,19 @@ class LoginForm extends Component {
 
     return (
       <Button onPress={this.onButtonPress.bind(this)}>
-        Log in
+        Login
+      </Button>
+    );
+  }
+
+  renderSignUpButton() {
+    if (this.state.signUploading) {
+      return <Spinner size="small" />;
+    }
+
+    return (
+      <Button onPress={this.onSignUpButtonPress.bind(this)}>
+        Sign Up
       </Button>
     );
   }
@@ -71,8 +101,16 @@ class LoginForm extends Component {
           {this.state.error}
         </Text>
 
+        <Text style={styles.signUpMsg}>
+          {this.state.signUpMsg}
+        </Text>
+
         <CardSection>
           {this.renderButton()}
+        </CardSection>
+
+        <CardSection>
+          {this.renderSignUpButton()}
         </CardSection>
       </Card>
     );
@@ -84,6 +122,11 @@ const styles = {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
+  },
+  signUpMsg: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'green'
   }
 };
 

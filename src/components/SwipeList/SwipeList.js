@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   View,
-  Linking
+  Linking,
+  Image
 } from 'react-native';
 
 import { SwipeListView, SwipeRow } from 'react-native-swipe-list-view';
@@ -69,7 +70,7 @@ class SwipeList extends Component {
               <Text/>
               <TouchableOpacity
                 onPress={() => {Linking.openURL(rowData.item.url)}}>
-                  <Text style = {styles.yelpText}> YELP </Text>
+                  <Text style = {styles.textStyle}>Yelp</Text>
               </TouchableOpacity>
           </View>
         )}
@@ -91,28 +92,29 @@ class SwipeList extends Component {
 const styles = StyleSheet.create({
   rowFront: {
     alignItems: 'center',
-    backgroundColor: '#CCC',
+    backgroundColor: '#e0e0e0',
     borderBottomColor: 'black',
     borderBottomWidth: 1,
     justifyContent: 'center',
-    height: 200,
+    height: 100,
     padding: 0
   },
   yelp: {
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: 'red',
+    backgroundColor: '#af0606',
     flex: 1,
     flexDirection: 'row',
     paddingRight: 20
   },
-  yelpText: {
-   textAlign: 'center',
-   justifyContent: 'space-between',
-   fontWeight: 'bold',
-   fontSize: 16,
-   paddingLeft: 15
+  textStyle: {
+    color: 'white',
+    textAlign: 'center',
+    justifyContent: 'space-between',
+    fontWeight: 'bold',
+    fontSize: 16,
+    paddingLeft: 15
   },
 });
 export default SwipeList;

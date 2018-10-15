@@ -6,8 +6,8 @@ export default class InfoBar extends React.Component {
     return (
       <View style={styles.container}>
         <Image source={this.props.source} style={{
-          width: 150,
-          height: 150,
+          width: 300,
+          height: 300,
           alignSelf:'center'
         }}/>
       </View>

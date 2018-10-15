@@ -5,6 +5,8 @@ import { Constants, Location, Permissions } from 'expo';
 import CardContainer from '../CardContainer/CardContainer';
 import MatchViewContainer from '../MatchView/MatchViewContainer.js';
 import firebase from 'firebase';
+import LoginForm from '../LoginPage/LoginForm';
+import LinearGradient from 'react-native-linear-gradient';
 
 
 export default class MainContainer extends Component {
@@ -24,10 +26,16 @@ export default class MainContainer extends Component {
 
     static navigationOptions = ({ navigation, firebase }) => {
     return {
-      headerTitle: <Text style={styles.headerTitle}>Food Tinder</Text>,
+      headerTitle: <Text style={styles.headerTitle}>Duck Duck Food</Text>,
       headerLeft: (
         <Button
-          onPress={ () => navigation.navigate('LoginPage') }
+          onPress={ () => {
+              try {
+                  navigation.navigate('LoginPage');
+              } catch (e) {
+                  console.log(e);
+              }
+          } }
           title="Logout"
           style={styles.textStyle}
         />
@@ -85,13 +93,11 @@ export default class MainContainer extends Component {
 
 const styles = StyleSheet.create({
     headerTitle: {
-        fontSize: 30,
-        color: '#ffd700',
-        // textDecorationStyle: 'solid',
-        // textDecorationColor: '#B22222',
+        fontSize: 27,
+        color: '#1F73D1',
+        textShadowColor: '#ffff',
         textShadowOffset:{width: 2, height: 2},
         textShadowRadius:1,
-        textShadowColor: '#B22222',
         fontWeight: '700',
     },
     constainerStyle: {
